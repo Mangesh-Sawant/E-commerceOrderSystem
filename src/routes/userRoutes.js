@@ -1,63 +1,63 @@
-const express =  require("express");
+const express = require("express");
 const User = require("../models/User");
-const  bcrypt  = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const router = express.Router();
 
-router.post("/login",async(req,res)=>{
-    try{
-        const {email , password} = req.body;
+router.post("/login", async (req, res) => {
+    try {
+        const { email, password } = req.body;
 
-    const user = await User.findOne({email});
+        const user = await User.findOne({ email });
 
-    if(!user){
-        return res.status(400).json({
-            message: "Invalid Credentials"
-        })
-    }
-
-    const isMatch = await bcrypt.compare(
-        password,
-        user.password
-    )
-
-    if(!isMatch){
-         return res.status(400).json({
-                message:"Invalid Credentials"
-            });
-    }
-
-    const token = jwt.sign(
-        {
-            id:user._id,
-            role:user.role
-        },
-        process.env.JWT_SECRET,
-        {
-            expiresIn:"1d"
+        if (!user) {
+            return res.status(400).json({
+                message: "Invalid Credentials"
+            })
         }
-    );
+
+        const isMatch = await bcrypt.compare(
+            password,
+            user.password
+        )
+
+        if (!isMatch) {
+            return res.status(400).json({
+                message: "Invalid Credentials"
+            });
+        }
+
+        const token = jwt.sign(
+            {
+                id: user._id,
+                role: user.role
+            },
+            process.env.JWT_SECRET,
+            {
+                expiresIn: "1d"
+            }
+        );
 
 
-    res.status(200).json({
-        message:"Login Successful",
-        token
-    })
-    }catch (err){
+        res.status(200).json({
+            message: "Login Successful",
+            token
+        })
+    } catch (err) {
         res.status(500).json({
-            message:err.message
+            message: err.message
         })
     }
 });
 
-router.post("/register",async (req,res)=>{
+router.post("/register", async (req, res) => {
     try {
-        const {name,email,password} = req.body;
+        const { name, email, password } = req.body;
 
-        const existingUser = await User.findOne({email});
-        
-        if(existingUser){
+        const existingUser = await User.findOne({ email });
+
+        if (existingUser) {
             return res.status(400).json({
                 message: "User already Exists"
             });
@@ -69,20 +69,21 @@ router.post("/register",async (req,res)=>{
         )
 
         const user = await User.create({
-           name,
-           email,
-           password : hashedPassword
+            name,
+            email,
+            password: hashedPassword
         });
 
         res.status(201).json({
             message: "User Resistered Successfully",
             user
         });
-    } 
-    catch (err){
-res.status(500).json({
-    message:err.message
-})}
+    }
+    catch (err) {
+        res.status(500).json({
+            message: err.message
+        })
+    }
 });
 
 module.exports = router;
