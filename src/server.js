@@ -2,6 +2,8 @@ const express = require("express");
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
+const cartRoutes = require("./routes/cartRoutes");
+
 const swaggerSpec = require("./config/swagger");
 const swaggerUi = require("swagger-ui-express");
 
@@ -19,6 +21,7 @@ app.use(
 
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/cart", cartRoutes);
 
 app.get('/helth', (req, res) => {
   res.send('helth check');

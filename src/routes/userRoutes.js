@@ -1,89 +1,86 @@
 const express = require("express");
-const User = require("../models/User");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+
+const { logIn , registerUser} = require("../controllers/userController");
 
 const router = express.Router();
 
-router.post("/login", async (req, res) => {
-    try {
-        const { email, password } = req.body;
 
-        const user = await User.findOne({ email });
+/**
+ * @swagger
+ * /api/auth/login:
+ *   post:
+ *     summary: Login user
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - password
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 example: john@example.com
+ *               password:
+ *                 type: string
+ *                 example: 123456
+ *     responses:
+ *       200:
+ *         description: Login successful, returns JWT token
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 token:
+ *                   type: string
+ *       400:
+ *         description: Invalid credentials
+ *       500:
+ *         description: Server error
+ */
+router.post("/login", logIn);
 
-        if (!user) {
-            return res.status(400).json({
-                message: "Invalid Credentials"
-            })
-        }
 
-        const isMatch = await bcrypt.compare(
-            password,
-            user.password
-        )
-
-        if (!isMatch) {
-            return res.status(400).json({
-                message: "Invalid Credentials"
-            });
-        }
-
-        const token = jwt.sign(
-            {
-                id: user._id,
-                role: user.role
-            },
-            process.env.JWT_SECRET,
-            {
-                expiresIn: "1d"
-            }
-        );
-
-
-        res.status(200).json({
-            message: "Login Successful",
-            token
-        })
-    } catch (err) {
-        res.status(500).json({
-            message: err.message
-        })
-    }
-});
-
-router.post("/register", async (req, res) => {
-    try {
-        const { name, email, password } = req.body;
-
-        const existingUser = await User.findOne({ email });
-
-        if (existingUser) {
-            return res.status(400).json({
-                message: "User already Exists"
-            });
-        }
-
-        const hashedPassword = await bcrypt.hash(
-            password,
-            10
-        )
-
-        const user = await User.create({
-            name,
-            email,
-            password: hashedPassword
-        });
-
-        res.status(201).json({
-            message: "User Resistered Successfully",
-            user
-        });
-    }
-    catch (err) {
-        res.status(500).json({
-            message: err.message
-        })
-    }
-});
+/**
+ * @swagger
+ * /api/auth/register:
+ *   post:
+ *     summary: Register a new user
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - email
+ *               - password
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 example: John Doe
+ *               email:
+ *                 type: string
+ *                 example: john@example.com
+ *               password:
+ *                 type: string
+ *                 example: 123456
+ *     responses:
+ *       201:
+ *         description: User registered successfully
+ *       400:
+ *         description: User already exists
+ *       500:
+ *         description: Server error
+ */
+router.post("/register", registerUser);
 
 module.exports = router;
