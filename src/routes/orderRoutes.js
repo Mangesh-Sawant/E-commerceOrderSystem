@@ -1,9 +1,13 @@
 const express = require("express");
 const router = express.Router();
 
-const { placeOrder, getOrders } = require("../controllers/orderController");
+const { placeOrder, getOrders, getOrderById, cancelOrder } = require("../controllers/orderController");
+const { protect } = require("../middleware/authMiddleware");
 
-router.post("/", placeOrder);
-router.get("/", getOrders);
+// All order routes require login
+router.post("/", protect, placeOrder);
+router.get("/", protect, getOrders);
+router.get("/:id", protect, getOrderById);
+router.put("/:id/cancel", protect, cancelOrder);
 
 module.exports = router;
