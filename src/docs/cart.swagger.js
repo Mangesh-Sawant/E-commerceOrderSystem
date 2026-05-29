@@ -116,3 +116,21 @@
  *       500:
  *         description: Server error
  */
+
+
+/**
+ * @swagger
+ * /api/cart:
+ *   delete:
+ *     summary: Clear entire cart
+ *     tags: [Cart]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Cart cleared successfully
+ *       404:
+ *         description: Cart not found
+ *       500:
+ *         description: Server error
+ */

@@ -160,9 +160,30 @@ const updateCartItem = async (req, res) => {
     }
 }
 
+// ─── CLEAR ENTIRE CART ──────────────────────────────────────────
+// Empties all items from the cart in one go
+// Cart document stays in DB (userId preserved), only items are cleared
+const clearCart = async (req, res) => {
+    try {
+        const cart = await Cart.findOne({ userId: req.user.id });
+
+        if (!cart) {
+            return res.status(404).json({ message: "Cart not found" });
+        }
+
+        cart.items = []; // empty the items array
+        await cart.save();
+
+        return res.status(200).json({ message: "Cart cleared successfully" });
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+}
+
 module.exports = {
     addToCart,
     getCart,
     removeFromCart,
-    updateCartItem
+    updateCartItem,
+    clearCart
 };

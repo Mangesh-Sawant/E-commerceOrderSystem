@@ -109,3 +109,37 @@
  *       500:
  *         description: Server error
  */
+
+
+/**
+ * @swagger
+ * /api/admin/stats:
+ *   get:
+ *     summary: Get admin dashboard stats (Admin only)
+ *     tags: [Admin]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Dashboard stats returned
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 totalUsers:
+ *                   type: integer
+ *                   example: 120
+ *                 totalOrders:
+ *                   type: integer
+ *                   example: 340
+ *                 totalRevenue:
+ *                   type: number
+ *                   example: 85000
+ *                 ordersByStatus:
+ *                   type: object
+ *       403:
+ *         description: Access denied. Admins only.
+ *       500:
+ *         description: Server error
+ */

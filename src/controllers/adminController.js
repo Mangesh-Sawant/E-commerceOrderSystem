@@ -134,10 +134,69 @@ const createAdmin = async (req, res) => {
 };
 
 
+
+// ─── ADMIN STATS DASHBOARD ──────────────────────────────────────
+// Returns key numbers for admin dashboard
+// Uses MongoDB aggregation — powerful way to compute data in DB
+const getStats = async (req, res) => {
+    try {
+        // Run all DB queries at the same time using Promise.all (faster than one by one)
+        const [
+            totalUsers,
+            totalOrders,
+            revenueResult,
+            ordersByStatus
+        ] = await Promise.all([
+
+            // Count total registered users
+            User.countDocuments(),
+
+            // Count total orders
+            Order.countDocuments(),
+
+            // Sum up all totalAmount across all orders
+            // $group: groups all documents into one
+            // $sum: adds up the field
+            Order.aggregate([
+                { $group: { _id: null, totalRevenue: { $sum: "$totalAmount" } } }
+            ]),
+
+            // Count orders grouped by status
+            // e.g. { pending: 5, confirmed: 12, shipped: 3, ... }
+            Order.aggregate([
+                { $group: { _id: "$status", count: { $sum: 1 } } }
+            ])
+        ]);
+
+        // revenueResult is an array — take first element, default to 0 if empty
+        const totalRevenue = revenueResult[0]?.totalRevenue || 0;
+
+        // Convert ordersByStatus array into a readable object
+        // [ { _id: "pending", count: 5 } ] → { pending: 5 }
+        const statusBreakdown = {};
+        ordersByStatus.forEach(item => {
+            statusBreakdown[item._id] = item.count;
+        });
+
+        return res.status(200).json({
+            totalUsers,
+            totalOrders,
+            totalRevenue,
+            ordersByStatus: statusBreakdown
+        });
+
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+};
+
+
 module.exports = {
+
     getAllUsers,
     deleteUser,
     getAllOrders,
     updateOrderStatus,
-    createAdmin
+    createAdmin,
+    getStats
 };
