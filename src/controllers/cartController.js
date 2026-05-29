@@ -24,7 +24,7 @@ const addToCart  = async (req , res ) =>{
 
         if(!cart){
             cart = new Cart({
-                user:userId,
+                userId,
                 items:[{productId,quantity}]
             })
 
@@ -67,6 +67,7 @@ const addToCart  = async (req , res ) =>{
 const getCart  = async (req , res ) =>{
     try{
         const userId = req.user.id;
+        console.log(req.user)
         const cart = await Cart.findOne({userId}).populate("items.productId");
 
         if (!cart) {
