@@ -7,12 +7,14 @@ const cartRoutes = require("./routes/cartRoutes");
 
 const swaggerSpec = require("./config/swagger");
 const swaggerUi = require("swagger-ui-express");
+const errorHandler = require("./middleware/error.middleware");
 
 const app = express();
 
 connectDB();
 
 app.use(express.json());
+app.use(errorHandler);
 
 app.use(
   "/api-docs",
