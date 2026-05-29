@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const Order = require("../models/Order");
+const Notification = require("../models/Notification");
 const ORDER_STATUS = require("../constants/orderStatus");
 const bcrypt = require("bcryptjs");
 const ROLES = require("../constants/roles");
@@ -85,6 +86,15 @@ const updateOrderStatus = async (req, res) => {
         if (!order) {
             return res.status(404).json({ message: "Order not found" });
         }
+
+        // 🔔 Fire & Forget: Create an in-app notification for the user
+        // We don't await this because we don't want to slow down the admin's API response!
+        Notification.create({
+            userId: order.userId,
+            title: "Order Update",
+            message: `Your order status has been updated to: ${status}`,
+            type: "order"
+        }).catch(err => console.error("Failed to create notification:", err));
 
         return res.status(200).json({
             message: "Order status updated",

@@ -2,6 +2,7 @@ const ORDER_STATUS = require("../constants/orderStatus");
 const Cart = require("../models/Cart");
 const Order = require("../models/Order");
 const Product = require("../models/Product");
+const Notification = require("../models/Notification");
 
 const placeOrder = async (req, res) => {
     try {
@@ -55,6 +56,14 @@ const placeOrder = async (req, res) => {
         // 5. clear cart
         cart.items = [];
         await cart.save();
+
+        // 🔔 Fire & Forget: Create an in-app notification
+        Notification.create({
+            userId,
+            title: "Order Placed",
+            message: `Your order has been placed successfully. Order total: $${totalAmount}`,
+            type: "order"
+        }).catch(err => console.error("Failed to create notification:", err));
 
         return res.status(201).json({
             message: "Order placed successfully",

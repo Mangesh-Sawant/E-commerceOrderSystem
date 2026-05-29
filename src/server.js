@@ -7,6 +7,7 @@ const cartRoutes = require("./routes/cartRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const bannerRoutes = require("./routes/bannerRoutes");
+const notificationRoutes = require("./routes/notificationRoutes");
 
 
 const swaggerSpec = require("./config/swagger");
@@ -32,6 +33,7 @@ app.use("/api/cart", cartRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/banner", bannerRoutes);
+app.use("/api/notifications", notificationRoutes);
 
 app.get('/helth', (req, res) => {
   res.send('helth check');
