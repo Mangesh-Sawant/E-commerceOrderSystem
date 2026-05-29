@@ -1,6 +1,8 @@
 const User = require("../models/User");
 const Order = require("../models/Order");
 const ORDER_STATUS = require("../constants/orderStatus");
+const bcrypt = require("bcryptjs");
+const ROLES = require("../constants/roles");
 
 // ─── GET ALL USERS ──────────────────────────────────────────────
 // Admin can see every registered user (without their passwords)
@@ -94,9 +96,48 @@ const updateOrderStatus = async (req, res) => {
 };
 
 
+// ─── CREATE ANOTHER ADMIN ───────────────────────────────────────
+// Only an existing admin can create another admin account
+// This avoids needing DB access or seed scripts every time
+const createAdmin = async (req, res) => {
+    try {
+        const { name, email, password } = req.body;
+
+        // Check if user already exists
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ message: "User with this email already exists" });
+        }
+
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Create user with admin role directly
+        const newAdmin = await User.create({
+            name,
+            email,
+            password: hashedPassword,
+            role: ROLES.ADMIN
+        });
+
+        return res.status(201).json({
+            message: "Admin created successfully",
+            admin: {
+                id: newAdmin._id,
+                name: newAdmin.name,
+                email: newAdmin.email,
+                role: newAdmin.role
+            }
+        });
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+};
+
+
 module.exports = {
     getAllUsers,
     deleteUser,
     getAllOrders,
-    updateOrderStatus
+    updateOrderStatus,
+    createAdmin
 };
