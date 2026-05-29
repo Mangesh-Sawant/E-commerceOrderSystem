@@ -147,3 +147,105 @@
  *       500:
  *         description: Server error
  */
+
+
+/**
+ * @swagger
+ * /api/users/profile:
+ *   get:
+ *     summary: Get logged-in user's profile
+ *     tags: [Auth]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Returns user profile (without password)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 _id:
+ *                   type: string
+ *                 name:
+ *                   type: string
+ *                 email:
+ *                   type: string
+ *                 role:
+ *                   type: string
+ *       401:
+ *         description: Not authorized, no token
+ *       404:
+ *         description: User not found
+ *       500:
+ *         description: Server error
+ */
+
+
+/**
+ * @swagger
+ * /api/users/profile:
+ *   put:
+ *     summary: Update logged-in user's profile
+ *     tags: [Auth]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 example: John Updated
+ *               email:
+ *                 type: string
+ *                 example: johnupdated@example.com
+ *     responses:
+ *       200:
+ *         description: Profile updated successfully
+ *       400:
+ *         description: Email already in use
+ *       401:
+ *         description: Not authorized
+ *       500:
+ *         description: Server error
+ */
+
+
+/**
+ * @swagger
+ * /api/users/change-password:
+ *   put:
+ *     summary: Change password (must be logged in)
+ *     tags: [Auth]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - currentPassword
+ *               - newPassword
+ *             properties:
+ *               currentPassword:
+ *                 type: string
+ *                 example: "oldpass123"
+ *               newPassword:
+ *                 type: string
+ *                 example: "newpass456"
+ *     responses:
+ *       200:
+ *         description: Password changed successfully
+ *       400:
+ *         description: Current password is incorrect
+ *       401:
+ *         description: Not authorized
+ *       500:
+ *         description: Server error
+ */

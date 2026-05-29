@@ -160,4 +160,87 @@ const resetPassword = async (req, res) => {
 };
 
 
-module.exports = { registerUser, logIn, forgotPassword, resetPassword };
+// ─── GET MY PROFILE ─────────────────────────────────────────────
+// protect middleware runs first → sets req.user.id
+// we use that id to find the logged-in user's data
+const getProfile = async (req, res) => {
+    try {
+        // findById using the id from JWT token (set by protect middleware)
+        // .select("-password") → returns all fields EXCEPT password
+        const user = await User.findById(req.user.id).select("-password");
+
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        res.status(200).json(user);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+
+// ─── UPDATE MY PROFILE ──────────────────────────────────────────
+// User can update their name and email only
+// They should NOT be able to update password here (separate API for that)
+const updateProfile = async (req, res) => {
+    try {
+        const { name, email } = req.body;
+
+        // Check if another user already has this email
+        if (email) {
+            const emailTaken = await User.findOne({ email, _id: { $ne: req.user.id } });
+            // $ne = "not equal" → finds user with this email but NOT the current user
+            if (emailTaken) {
+                return res.status(400).json({ message: "Email is already in use" });
+            }
+        }
+
+        // findByIdAndUpdate: finds user by id, applies updates, returns updated doc
+        // { new: true } → returns the UPDATED document, not the old one
+        // { runValidators: true } → runs schema validations on update
+        const updatedUser = await User.findByIdAndUpdate(
+            req.user.id,
+            { name, email },
+            { new: true, runValidators: true }
+        ).select("-password");
+
+        res.status(200).json({
+            message: "Profile updated successfully",
+            user: updatedUser
+        });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+
+// ─── CHANGE PASSWORD ────────────────────────────────────────────
+// User must provide their current password to prove it's really them
+// Then set a new password — requires being logged in (protect middleware)
+const changePassword = async (req, res) => {
+    try {
+        const { currentPassword, newPassword } = req.body;
+
+        // Fetch user WITH password (select adds it back since profile hides it)
+        const user = await User.findById(req.user.id).select("+password");
+
+        // Verify current password is correct before allowing change
+        const isMatch = await bcrypt.compare(currentPassword, user.password);
+
+        if (!isMatch) {
+            return res.status(400).json({ message: "Current password is incorrect" });
+        }
+
+        // Hash and save the new password
+        user.password = await bcrypt.hash(newPassword, 10);
+        await user.save();
+
+        res.status(200).json({ message: "Password changed successfully" });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+
+module.exports = { registerUser, logIn, forgotPassword, resetPassword, getProfile, updateProfile, changePassword };
