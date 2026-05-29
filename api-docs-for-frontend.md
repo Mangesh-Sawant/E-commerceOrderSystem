@@ -32,13 +32,20 @@ This document outlines the complete backend architecture, data models, and API e
 - `link` (String, default: `""`)
 - `backgroundColor` (String, default: `"#4F46E5"`)
 
-### 4. Cart
+### 4. Notification
+- `userId` (ObjectId, ref: User)
+- `title` (String)
+- `message` (String)
+- `isRead` (Boolean, default: `false`)
+- `type` (String, enum: `["order", "offer", "account"]`)
+
+### 5. Cart
 - `userId` (ObjectId, ref: User)
 - `items`: Array of objects
   - `productId` (ObjectId, ref: Product)
   - `quantity` (Number)
 
-### 4. Order
+### 6. Order
 - `userId` (ObjectId, ref: User)
 - `items`: Array of objects (snapshot of cart items)
   - `productId` (ObjectId, ref: Product)
@@ -94,6 +101,12 @@ This document outlines the complete backend architecture, data models, and API e
 | GET | `/` | Get the currently active banner | No |
 | PUT | `/` | Update the banner text, color, link, or active status | Yes (Admin) |
 
+### 🔔 Notifications (`/api/notifications`)
+| Method | Endpoint | Description | Auth Required |
+|---|---|---|---|
+| GET | `/` | Get current user's latest 20 notifications & unread count | Yes (User) |
+| PUT | `/read` | Mark all unread notifications as read for current user | Yes (User) |
+
 ### 🛡️ Admin Panel (`/api/admin`)
 | Method | Endpoint | Description | Auth Required |
 |---|---|---|---|
@@ -124,3 +137,7 @@ This document outlines the complete backend architecture, data models, and API e
 
 4. **Admin Setup:**
    - If starting fresh, run `node src/scripts/createAdmin.js` to seed the first super admin (`admin@example.com` / `Admin@123`).
+
+5. **Real-time UI Handling (Banners & Notifications):**
+   - For a prototype, the easiest way to make banners and notifications feel "real-time" is to use **Polling** (e.g., using SWR or React Query to fetch `GET /api/banner` or `GET /api/notifications` every 10-30 seconds in the background).
+   - Alternatively, fetch them exactly once on every route change.

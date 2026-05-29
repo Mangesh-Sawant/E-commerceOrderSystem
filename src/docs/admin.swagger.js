@@ -143,3 +143,40 @@
  *       500:
  *         description: Server error
  */
+
+
+/**
+ * @swagger
+ * /api/admin/users/create-admin:
+ *   post:
+ *     summary: Create a new admin account (Admin only)
+ *     tags: [Admin]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - email
+ *               - password
+ *             properties:
+ *               name:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Admin created successfully
+ *       400:
+ *         description: User with this email already exists
+ *       403:
+ *         description: Access denied. Admins only.
+ *       500:
+ *         description: Server error
+ */
