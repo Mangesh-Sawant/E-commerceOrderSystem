@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const crypto = require("crypto"); 
 
 const registerUser = async (req, res) => {
     try {
@@ -86,4 +87,77 @@ const logIn= async (req, res) => {
 };
 
 
-module.exports = {registerUser,logIn}
+const forgotPassword = async (req, res) => {
+    try {
+        const { email } = req.body;
+
+        // Step 1: check if user exists
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            return res.status(404).json({ message: "No user found with this email" });
+        }
+
+        // Step 2: generate a random raw token using Node's built-in crypto
+        const rawToken = crypto.randomBytes(32).toString("hex");
+
+        // Step 3: hash the token before saving to DB (for security)
+        // Never store raw tokens in DB — if DB is leaked, tokens are useless
+        const hashedToken = crypto.createHash("sha256").update(rawToken).digest("hex");
+
+        // Step 4: save hashed token + expiry (15 minutes from now) on user
+        user.resetPasswordToken = hashedToken;
+        user.resetPasswordExpire = Date.now() + 15 * 60 * 1000; // 15 minutes
+
+        await user.save();
+
+        // Step 5: in production → send rawToken via email link
+        // e.g. https://yourapp.com/reset-password/<rawToken>
+        // For now, returning it in response for testing
+        res.status(200).json({
+            message: "Password reset token generated",
+            resetToken: rawToken // send this in email in production
+        });
+
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+
+const resetPassword = async (req, res) => {
+    try {
+        const { token } = req.params;
+        const { newPassword } = req.body;
+
+        // Step 1: hash the incoming raw token to compare with DB
+        const hashedToken = crypto.createHash("sha256").update(token).digest("hex");
+
+        // Step 2: find user with matching token AND token not expired
+        const user = await User.findOne({
+            resetPasswordToken: hashedToken,
+            resetPasswordExpire: { $gt: Date.now() } // $gt = greater than (not expired)
+        });
+
+        if (!user) {
+            return res.status(400).json({ message: "Token is invalid or has expired" });
+        }
+
+        // Step 3: hash the new password
+        user.password = await bcrypt.hash(newPassword, 10);
+
+        // Step 4: clear the reset token fields so it can't be reused
+        user.resetPasswordToken = undefined;
+        user.resetPasswordExpire = undefined;
+
+        await user.save();
+
+        res.status(200).json({ message: "Password reset successfully" });
+
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+
+module.exports = { registerUser, logIn, forgotPassword, resetPassword };

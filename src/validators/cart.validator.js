@@ -11,4 +11,11 @@ const addToCartValidation = [
         .isInt({ min: 1 }).withMessage("quantity must be a positive integer")
 ];
 
-module.exports = { addToCartValidation };
+// Validation rules for updating cart item quantity
+const updateCartValidation = [
+    body("quantity")
+        .notEmpty().withMessage("quantity is required")
+        .isInt({ min: 1 }).withMessage("quantity must be a positive integer")
+];
+
+module.exports = { addToCartValidation, updateCartValidation };

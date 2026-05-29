@@ -50,3 +50,69 @@
  *       500:
  *         description: Server error
  */
+
+
+/**
+ * @swagger
+ * /api/cart/{productId}:
+ *   delete:
+ *     summary: Remove item from cart
+ *     tags: [Cart]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: productId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The ID of the product to remove
+ *         example: "65a1f2b9c1234567890abcd"
+ *     responses:
+ *       200:
+ *         description: Item removed from cart
+ *       404:
+ *         description: Cart or item not found
+ *       500:
+ *         description: Server error
+ */
+
+
+/**
+ * @swagger
+ * /api/cart/{productId}:
+ *   put:
+ *     summary: Update cart item quantity
+ *     tags: [Cart]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: productId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The ID of the product to update
+ *         example: "65a1f2b9c1234567890abcd"
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - quantity
+ *             properties:
+ *               quantity:
+ *                 type: number
+ *                 example: 3
+ *     responses:
+ *       200:
+ *         description: Cart item updated successfully
+ *       400:
+ *         description: Not enough stock
+ *       404:
+ *         description: Cart or item not found
+ *       500:
+ *         description: Server error
+ */
