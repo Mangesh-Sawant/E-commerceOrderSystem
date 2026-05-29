@@ -1,6 +1,18 @@
 const mongoose = require("mongoose");
-const cartItemSchema = require("../models/Cart");
 const ORDER_STATUS = require("../constants/orderStatus");
+
+const orderItemSchema = new mongoose.Schema({
+  productId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Product",
+    required: true
+  },
+  quantity: {
+    type: Number,
+    required: true,
+    min: 1
+  }
+});
 
 const orderSchema = new mongoose.Schema({
   userId: {
@@ -9,9 +21,7 @@ const orderSchema = new mongoose.Schema({
     required: true
   },
 
-  items: [
-   cartItemSchema
-  ],
+  items: [orderItemSchema],
 
   totalAmount: {
     type: Number,
@@ -21,9 +31,9 @@ const orderSchema = new mongoose.Schema({
   status: {
     type: String,
     required: true,
-    enum: [ORDER_STATUS],
+    enum: Object.values(ORDER_STATUS),
     default: ORDER_STATUS.PENDING
   }
 }, { timestamps: true });
 
-modules.export = mongoose.model("Order",orderSchema);
+module.exports = mongoose.model("Order", orderSchema);
