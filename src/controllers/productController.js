@@ -2,12 +2,45 @@ const Product = require("../models/Product")
 
 const getProducts = async (req, res) => {
     try {
-        const products = await Product.find();
-        res.status(200).json(products);
-    } catch (error) {
-        res.status(500).json({
-            message: "Something went wrong",
+        // Read query params from URL
+        // e.g. GET /api/products?search=shoes&category=clothing&page=2&limit=5
+        const { search, category, page = 1, limit = 10 } = req.query;
+
+        // Build the filter object dynamically
+        const filter = {};
+
+        // search: case-insensitive partial match on title
+        // $regex = pattern matching, like SQL LIKE
+        // $options: "i" = case insensitive (Shoes = shoes = SHOES)
+        if (search) {
+            filter.title = { $regex: search, $options: "i" };
+        }
+
+        // category: exact match filter
+        if (category) {
+            filter.category = category;
+        }
+
+        // Pagination math:
+        // page=2, limit=10 → skip first 10 results → show results 11-20
+        const skip = (Number(page) - 1) * Number(limit);
+
+        // Count total matching products (for frontend to know total pages)
+        const total = await Product.countDocuments(filter);
+
+        const products = await Product.find(filter)
+            .skip(skip)          // skip previous pages
+            .limit(Number(limit)) // only return this many per page
+            .sort({ createdAt: -1 }); // newest first
+
+        res.status(200).json({
+            total,                        // total matching products
+            page: Number(page),           // current page
+            totalPages: Math.ceil(total / Number(limit)), // how many pages exist
+            products
         });
+    } catch (error) {
+        res.status(500).json({ message: "Something went wrong" });
     }
 };
 

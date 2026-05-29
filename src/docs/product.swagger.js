@@ -2,12 +2,50 @@
  * @swagger
  * /api/products:
  *   get:
- *     summary: Get all products
+ *     summary: Get all products (with search, filter, pagination)
  *     tags:
  *       - Product
+ *     parameters:
+ *       - in: query
+ *         name: search
+ *         schema:
+ *           type: string
+ *         description: Search products by title (case-insensitive)
+ *         example: "shoes"
+ *       - in: query
+ *         name: category
+ *         schema:
+ *           type: string
+ *         description: Filter by category
+ *         example: "electronics"
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           default: 1
+ *         description: Page number
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           default: 10
+ *         description: Number of products per page
  *     responses:
  *       200:
- *         description: Success
+ *         description: Paginated product list
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 total:
+ *                   type: integer
+ *                 page:
+ *                   type: integer
+ *                 totalPages:
+ *                   type: integer
+ *                 products:
+ *                   type: array
  */
 
 /**
