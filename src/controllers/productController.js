@@ -64,13 +64,15 @@ const getProductById =async (req, res) => {
 
 const createProduct = async (req, res) => {
     try {
-        const { title, price, description, stock } = req.body;
+        const { title, price, description, stock, images, productType } = req.body;
 
         const product = await Product.create({
             title,
             price,
             description,
             stock,
+            images,
+            productType,
         });
 
         res.status(201).json({
@@ -89,7 +91,7 @@ const updateProduct = async (req, res) => {
         const updatedProduct = await Product.findByIdAndUpdate(
             req.params.id,
             req.body,
-            { new: true }
+            { new: true, runValidators: true }
         );
 
         if (!updatedProduct) {
@@ -101,7 +103,7 @@ const updateProduct = async (req, res) => {
         res.status(200).json(updatedProduct);
     } catch (error) {
         res.status(500).json({
-            message: "Something went wrong",
+            message: error.message,
         });
     }
 };

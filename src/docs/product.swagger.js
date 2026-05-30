@@ -92,6 +92,15 @@
  *                 type: string
  *               stock:
  *                 type: number
+ *               images:
+ *                 type: array
+ *                 maxItems: 5
+ *                 items:
+ *                   type: string
+ *                 description: Array of product image URLs (at most 5)
+ *               productType:
+ *                 type: string
+ *                 description: Type of the product
  *     responses:
  *       201:
  *         description: Product created
@@ -125,6 +134,15 @@
  *                 type: string
  *               stock:
  *                 type: number
+ *               images:
+ *                 type: array
+ *                 maxItems: 5
+ *                 items:
+ *                   type: string
+ *                 description: Array of product image URLs (at most 5)
+ *               productType:
+ *                 type: string
+ *                 description: Type of the product
  *     responses:
  *       200:
  *         description: Updated

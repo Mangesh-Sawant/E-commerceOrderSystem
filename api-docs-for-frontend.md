@@ -25,6 +25,8 @@ This document outlines the complete backend architecture, data models, and API e
 - `description` (String)
 - `category` (String, default: `"general"`)
 - `stock` (Number)
+- `images` (Array of Strings, max 5, default: `[]`)
+- `productType` (String, default: `""`)
 
 ### 3. Banner
 - `message` (String)
