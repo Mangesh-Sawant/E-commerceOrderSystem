@@ -1,0 +1,401 @@
+---
+---
+
+<html lang="en"><head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Ayurveda Admin Dashboard</title>
+<script src="/assets/03ba5d9f9e95fc3599acebcbe7e5fb9a.js" is:inline="" />
+<link href="/assets/a39f5c6fcbb87b419667ec984d2e579a.css" rel="stylesheet" />
+<link href="/assets/501fd1ce718d07e6c6ddd4f742852aa1.css" rel="stylesheet" />
+<link href="/assets/a39f5c6fcbb87b419667ec984d2e579a.css" rel="stylesheet" />
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f3f4f5",
+                    "on-secondary-container": "#19724f",
+                    "on-background": "#191c1d",
+                    "on-secondary-fixed": "#002113",
+                    "on-secondary-fixed-variant": "#005236",
+                    "surface-container": "#edeeef",
+                    "surface-bright": "#f8f9fa",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "tertiary-fixed": "#ffdad7",
+                    "tertiary": "#550009",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f8f9fa",
+                    "secondary-container": "#a0f4c8",
+                    "surface-variant": "#e1e3e4",
+                    "secondary-fixed-dim": "#85d7ad",
+                    "on-primary-container": "#86af99",
+                    "inverse-primary": "#a5d0b9",
+                    "outline": "#717973",
+                    "tertiary-container": "#7e0013",
+                    "on-tertiary-fixed-variant": "#930018",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "tertiary-fixed-dim": "#ffb3af",
+                    "primary-fixed": "#c1ecd4",
+                    "primary": "#012d1d",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c1c8c2",
+                    "on-surface": "#191c1d",
+                    "on-primary-fixed": "#002114",
+                    "surface-dim": "#d9dadb",
+                    "surface-container-high": "#e7e8e9",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e1e3e4",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#410005",
+                    "on-tertiary-container": "#ff807c",
+                    "inverse-surface": "#2e3132",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f8f9fa",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#a0f4c8",
+                    "secondary": "#0e6c4a",
+                    "surface-tint": "#3f6653",
+                    "primary-container": "#1b4332",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#414844"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-md": [
+                            "Noto Serif"
+                    ],
+                    "headline-lg-mobile": [
+                            "Noto Serif"
+                    ],
+                    "body-lg": [
+                            "Manrope"
+                    ],
+                    "label-sm": [
+                            "Manrope"
+                    ],
+                    "headline-lg": [
+                            "Noto Serif"
+                    ],
+                    "label-md": [
+                            "Manrope"
+                    ],
+                    "display-lg": [
+                            "Noto Serif"
+                    ],
+                    "body-md": [
+                            "Manrope"
+                    ]
+            },
+            "fontSize": {
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "28px",
+                            {
+                                    "lineHeight": "36px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.03em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-full py-base fixed left-0 top-0 w-64 bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container shadow-lg z-50">
+<div class="px-gutter mb-8 pt-4">
+<h1 class="text-headline-sm font-headline-sm font-bold text-on-primary">Ayurveda Admin</h1>
+<p class="text-label-sm font-label-sm text-primary-fixed-dim mt-1">Management Portal</p>
+</div>
+<div class="flex-1 flex flex-col gap-2 px-2 overflow-y-auto">
+<a class="bg-secondary-fixed-dim text-on-secondary-fixed rounded-lg mx-2 flex items-center gap-3 p-3 transition-transform scale-98" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-label-md font-label-md">Products</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-label-md font-label-md">Orders</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-label-md font-label-md">Customers</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-label-md font-label-md">Analytics</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-label-md font-label-md">Settings</span>
+</a>
+</div>
+<div class="mt-auto flex flex-col gap-2 px-2 pt-4 border-t border-on-primary-fixed-variant">
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="text-label-md font-label-md">Help Center</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-label-md font-label-md">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-0 md:ml-64 p-margin-mobile md:p-margin-desktop w-full max-w-container-max mx-auto overflow-x-hidden">
+<!-- Header -->
+<header class="flex justify-between items-center mb-12">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-primary mb-2">Overview</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Welcome back. Here's what's happening with your store today.</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<img alt="Admin User Profile" class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="A professional headshot of a person, used as a user profile avatar. The image is clean, well-lit, and suitable for a corporate dashboard context." src="/assets/952867b6466f66f119ceb36784d43f65.png" />
+</div>
+</header>
+<!-- KPI Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter mb-12">
+<!-- Metric 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-[0px_10px_20px_rgba(27,67,50,0.02)] hover:shadow-[0px_10px_20px_rgba(27,67,50,0.08)] transition-shadow duration-300">
+<div class="flex justify-between items-start mb-4">
+<p class="text-label-md font-label-md text-on-surface-variant">Total Revenue</p>
+<span class="material-symbols-outlined text-secondary">payments</span>
+</div>
+<h3 class="text-display-lg font-display-lg text-primary mb-1">$24,500</h3>
+<div class="flex items-center gap-1 text-secondary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span>
+<span>+12.5% from last month</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-[0px_10px_20px_rgba(27,67,50,0.02)] hover:shadow-[0px_10px_20px_rgba(27,67,50,0.08)] transition-shadow duration-300">
+<div class="flex justify-between items-start mb-4">
+<p class="text-label-md font-label-md text-on-surface-variant">Active Users</p>
+<span class="material-symbols-outlined text-secondary">group</span>
+</div>
+<h3 class="text-display-lg font-display-lg text-primary mb-1">1,240</h3>
+<div class="flex items-center gap-1 text-secondary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span>
+<span>+5.2% from last month</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-[0px_10px_20px_rgba(27,67,50,0.02)] hover:shadow-[0px_10px_20px_rgba(27,67,50,0.08)] transition-shadow duration-300">
+<div class="flex justify-between items-start mb-4">
+<p class="text-label-md font-label-md text-on-surface-variant">Total Orders</p>
+<span class="material-symbols-outlined text-secondary">shopping_bag</span>
+</div>
+<h3 class="text-display-lg font-display-lg text-primary mb-1">856</h3>
+<div class="flex items-center gap-1 text-error text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+<span>-2.1% from last month</span>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-[0px_10px_20px_rgba(27,67,50,0.02)] hover:shadow-[0px_10px_20px_rgba(27,67,50,0.08)] transition-shadow duration-300">
+<div class="flex justify-between items-start mb-4">
+<p class="text-label-md font-label-md text-on-surface-variant">User Feedback</p>
+<span class="material-symbols-outlined text-secondary">reviews</span>
+</div>
+<h3 class="text-display-lg font-display-lg text-primary mb-1">4.8</h3>
+<div class="flex items-center gap-1 text-secondary text-label-sm font-label-sm">
+<span>Based on 320 reviews</span>
+</div>
+</div>
+</div>
+<!-- Layout for Tables/Lists -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Recent Orders Table -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0px_10px_20px_rgba(27,67,50,0.02)] overflow-hidden">
+<div class="p-6 border-b border-surface-container flex justify-between items-center">
+<h3 class="text-headline-md font-headline-md text-primary">Recent Orders</h3>
+<button class="text-secondary text-label-md font-label-md hover:underline">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-surface-container">
+<th class="p-4 text-label-md font-label-md text-on-surface-variant font-semibold">Order ID</th>
+<th class="p-4 text-label-md font-label-md text-on-surface-variant font-semibold">Customer</th>
+<th class="p-4 text-label-md font-label-md text-on-surface-variant font-semibold">Date</th>
+<th class="p-4 text-label-md font-label-md text-on-surface-variant font-semibold">Status</th>
+<th class="p-4 text-label-md font-label-md text-on-surface-variant font-semibold text-right">Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-surface-container hover:bg-surface-bright transition-colors">
+<td class="p-4 text-body-md font-body-md text-on-surface font-medium">#ORD-092</td>
+<td class="p-4 text-body-md font-body-md text-on-surface-variant">Sarah Jenkins</td>
+<td class="p-4 text-body-md font-body-md text-on-surface-variant">Oct 24, 2023</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm">Processing</span>
+</td>
+<td class="p-4 text-body-md font-body-md text-on-surface text-right font-medium">$124.00</td>
+</tr>
+<tr class="border-b border-surface-container hover:bg-surface-bright transition-colors">
+<td class="p-4 text-body-md font-body-md text-on-surface font-medium">#ORD-091</td>
+<td class="p-4 text-body-md font-body-md text-on-surface-variant">Michael Chen</td>
+<td class="p-4 text-body-md font-body-md text-on-surface-variant">Oct 24, 2023</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-surface-variant text-on-surface-variant text-label-sm font-label-sm">Shipped</span>
+</td>
+<td class="p-4 text-body-md font-body-md text-on-surface text-right font-medium">$89.50</td>
+</tr>
+<tr class="border-b border-surface-container hover:bg-surface-bright transition-colors">
+<td class="p-4 text-body-md font-body-md text-on-surface font-medium">#ORD-090</td>
+<td class="p-4 text-body-md font-body-md text-on-surface-variant">Emma Thompson</td>
+<td class="p-4 text-body-md font-body-md text-on-surface-variant">Oct 23, 2023</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-surface-variant text-on-surface-variant text-label-sm font-label-sm">Shipped</span>
+</td>
+<td class="p-4 text-body-md font-body-md text-on-surface text-right font-medium">$210.00</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="p-4 text-body-md font-body-md text-on-surface font-medium">#ORD-089</td>
+<td class="p-4 text-body-md font-body-md text-on-surface-variant">David Rodriguez</td>
+<td class="p-4 text-body-md font-body-md text-on-surface-variant">Oct 23, 2023</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-error-container text-on-error-container text-label-sm font-label-sm">Cancelled</span>
+</td>
+<td class="p-4 text-body-md font-body-md text-on-surface text-right font-medium">$45.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- User Feedback Summary -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0px_10px_20px_rgba(27,67,50,0.02)] overflow-hidden flex flex-col">
+<div class="p-6 border-b border-surface-container">
+<h3 class="text-headline-md font-headline-md text-primary">Recent Feedback</h3>
+</div>
+<div class="p-6 flex-1 flex flex-col gap-6 overflow-y-auto max-h-[400px]">
+<div class="flex gap-4 items-start">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 font-bold text-label-md">JD</div>
+<div>
+<div class="flex justify-between items-center mb-1">
+<h4 class="text-label-md font-label-md text-on-surface">John Doe</h4>
+<span class="text-label-sm font-label-sm text-on-surface-variant">2h ago</span>
+</div>
+<div class="flex text-tertiary-container mb-2 text-[14px]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant text-sm line-clamp-3">"The Ashwagandha root powder is exceptionally pure. I've noticed a significant improvement in my sleep quality. Will definitely reorder."</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-10 h-10 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center shrink-0 font-bold text-label-md">AW</div>
+<div>
+<div class="flex justify-between items-center mb-1">
+<h4 class="text-label-md font-label-md text-on-surface">Alice Wong</h4>
+<span class="text-label-sm font-label-sm text-on-surface-variant">1d ago</span>
+</div>
+<div class="flex text-tertiary-container mb-2 text-[14px]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant text-sm line-clamp-3">"Packaging was beautiful and eco-friendly. The massage oil smells divine, though shipping took a bit longer than expected."</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-10 h-10 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center shrink-0 font-bold text-label-md">MS</div>
+<div>
+<div class="flex justify-between items-center mb-1">
+<h4 class="text-label-md font-label-md text-on-surface">Mark Smith</h4>
+<span class="text-label-sm font-label-sm text-on-surface-variant">3d ago</span>
+</div>
+<div class="flex text-tertiary-container mb-2 text-[14px]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant text-sm line-clamp-3">"Excellent customer service. They helped me choose the right dosha-specific tea blend."</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

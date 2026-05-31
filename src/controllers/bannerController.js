@@ -1,17 +1,40 @@
 const Banner = require("../models/Banner");
 
-// ─── GET ACTIVE BANNER (Public) ─────────────────────────────────
-const getActiveBanner = async (req, res) => {
+// ─── GET ACTIVE BANNERS (Public) ─────────────────────────────────
+const getActiveBanners = async (req, res) => {
     try {
-        // We only expect one banner document in the DB
-        let banner = await Banner.findOne();
-        
-        // If no banner exists or it's inactive, return a safe default
-        if (!banner || !banner.isActive) {
-            return res.status(200).json({ isActive: false, message: "" });
-        }
+        const banners = await Banner.find({ isActive: true });
+        return res.status(200).json(banners);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+};
 
-        return res.status(200).json(banner);
+// ─── GET ALL BANNERS (Admin Only) ─────────────────────────────────
+const getAllBanners = async (req, res) => {
+    try {
+        const banners = await Banner.find().sort({ createdAt: -1 });
+        return res.status(200).json(banners);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+};
+
+// ─── CREATE BANNER (Admin Only) ─────────────────────────────────
+const createBanner = async (req, res) => {
+    try {
+        const { title, subtitle, imageUrl, isActive, link, backgroundColor } = req.body;
+        
+        const banner = await Banner.create({ 
+            title, 
+            subtitle, 
+            imageUrl, 
+            isActive, 
+            link, 
+            backgroundColor 
+        });
+        
+        return res.status(201).json(banner);
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }
@@ -20,28 +43,35 @@ const getActiveBanner = async (req, res) => {
 // ─── UPDATE BANNER (Admin Only) ─────────────────────────────────
 const updateBanner = async (req, res) => {
     try {
-        const { message, isActive, link, backgroundColor } = req.body;
+        const { id } = req.params;
+        const updates = req.body;
         
-        // Find existing banner or create one if it doesn't exist
-        let banner = await Banner.findOne();
+        const banner = await Banner.findByIdAndUpdate(id, updates, { new: true, runValidators: true });
         
-        if (banner) {
-            banner.message = message !== undefined ? message : banner.message;
-            banner.isActive = isActive !== undefined ? isActive : banner.isActive;
-            banner.link = link !== undefined ? link : banner.link;
-            banner.backgroundColor = backgroundColor !== undefined ? backgroundColor : banner.backgroundColor;
-            await banner.save();
-        } else {
-            banner = await Banner.create({ message, isActive, link, backgroundColor });
+        if (!banner) {
+            return res.status(404).json({ message: "Banner not found" });
         }
         
-        return res.status(200).json({
-            message: "Banner updated successfully",
-            banner
-        });
+        return res.status(200).json(banner);
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }
 };
 
-module.exports = { getActiveBanner, updateBanner };
+// ─── DELETE BANNER (Admin Only) ─────────────────────────────────
+const deleteBanner = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const banner = await Banner.findByIdAndDelete(id);
+        
+        if (!banner) {
+            return res.status(404).json({ message: "Banner not found" });
+        }
+        
+        return res.status(200).json({ message: "Banner deleted successfully" });
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+};
+
+module.exports = { getActiveBanners, getAllBanners, createBanner, updateBanner, deleteBanner };

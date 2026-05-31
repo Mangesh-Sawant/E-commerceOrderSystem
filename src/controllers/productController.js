@@ -64,7 +64,7 @@ const getProductById =async (req, res) => {
 
 const createProduct = async (req, res) => {
     try {
-        const { title, price, description, stock, images, productType } = req.body;
+        const { title, price, description, stock, images, productType, category } = req.body;
 
         const product = await Product.create({
             title,
@@ -73,6 +73,7 @@ const createProduct = async (req, res) => {
             stock,
             images,
             productType,
+            category,
         });
 
         res.status(201).json({

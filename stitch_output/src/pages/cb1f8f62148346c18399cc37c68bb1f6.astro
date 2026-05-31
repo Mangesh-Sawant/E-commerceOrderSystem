@@ -1,0 +1,326 @@
+---
+---
+
+<html lang="en"><head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Admin Settings - Banners &amp; Notifications</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="/assets/d9b876024ea07b89d6f4b4c372db4876.css" rel="stylesheet" />
+<!-- Material Symbols -->
+<link href="/assets/a39f5c6fcbb87b419667ec984d2e579a.css" rel="stylesheet" />
+<link href="/assets/a39f5c6fcbb87b419667ec984d2e579a.css" rel="stylesheet" />
+<!-- Tailwind CSS -->
+<script src="/assets/03ba5d9f9e95fc3599acebcbe7e5fb9a.js" is:inline="" />
+<!-- Tailwind Config injected from instructions -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline-variant": "#c1c8c2",
+                        "primary": "#012d1d",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#ffb3af",
+                        "on-error-container": "#93000a",
+                        "background": "#f8f9fa",
+                        "surface-container-low": "#f3f4f5",
+                        "tertiary-container": "#7e0013",
+                        "surface-container-high": "#e7e8e9",
+                        "on-surface-variant": "#414844",
+                        "inverse-primary": "#a5d0b9",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#19724f",
+                        "on-tertiary-fixed": "#410005",
+                        "on-tertiary-container": "#ff807c",
+                        "on-error": "#ffffff",
+                        "outline": "#717973",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#005236",
+                        "primary-fixed": "#c1ecd4",
+                        "secondary": "#0e6c4a",
+                        "surface-container": "#edeeef",
+                        "surface-tint": "#3f6653",
+                        "on-primary-container": "#86af99",
+                        "tertiary": "#550009",
+                        "on-tertiary-fixed-variant": "#930018",
+                        "on-surface": "#191c1d",
+                        "inverse-on-surface": "#f0f1f2",
+                        "secondary-container": "#a0f4c8",
+                        "surface-dim": "#d9dadb",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#002113",
+                        "secondary-fixed": "#a0f4c8",
+                        "surface-variant": "#e1e3e4",
+                        "surface": "#f8f9fa",
+                        "secondary-fixed-dim": "#85d7ad",
+                        "on-primary-fixed": "#002114",
+                        "tertiary-fixed": "#ffdad7",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-bright": "#f8f9fa",
+                        "primary-container": "#1b4332",
+                        "error-container": "#ffdad6",
+                        "on-background": "#191c1d"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    },
+                    spacing: {
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "container-max": "1280px",
+                        "base": "8px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Noto Serif"],
+                        "label-md": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "headline-md": ["Noto Serif"],
+                        "headline-lg-mobile": ["Noto Serif"],
+                        "headline-lg": ["Noto Serif"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"]
+                    },
+                    fontSize: {
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+                        "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.03em", fontWeight: "700" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "600" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom scrollbar for main content area to keep it clean */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e1e3e4; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c1c8c2; }
+        
+        /* Toggle Switch Custom CSS */
+        .toggle-checkbox:checked { right: 0; border-color: #012d1d; }
+        .toggle-checkbox:checked + .toggle-label { background-color: #012d1d; }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface flex min-h-screen overflow-hidden antialiased">
+<!-- SideNavBar (Generated from JSON) -->
+<nav class="fixed left-0 top-0 h-full w-64 bg-primary text-on-primary flex flex-col py-base shadow-lg z-50">
+<!-- Header Info -->
+<div class="px-6 py-6 mb-4 border-b border-on-primary-fixed-variant">
+<h1 class="text-headline-md font-headline-md font-bold text-on-primary mb-1">Ayurveda Admin</h1>
+<p class="text-label-sm font-label-sm text-primary-fixed-dim uppercase tracking-widest">Management Portal</p>
+</div>
+<!-- Main Navigation Links -->
+<div class="flex-1 overflow-y-auto px-2 space-y-2">
+<!-- Inactive -->
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+<!-- Inactive -->
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-label-md font-label-md">Products</span>
+</a>
+<!-- Inactive -->
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-label-md font-label-md">Orders</span>
+</a>
+<!-- Inactive -->
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-label-md font-label-md">Customers</span>
+</a>
+<!-- Inactive -->
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="text-label-md font-label-md">Analytics</span>
+</a>
+<!-- Active (Semantic match for "Admin Settings screen") -->
+<a class="bg-secondary-fixed-dim text-on-secondary-fixed rounded-lg mx-2 flex items-center gap-3 p-3 scale-98 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="text-label-md font-label-md font-bold">Settings</span>
+</a>
+</div>
+<!-- Footer Navigation Links -->
+<div class="mt-auto px-2 pt-4 border-t border-on-primary-fixed-variant space-y-2 pb-4">
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="text-label-md font-label-md">Help Center</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-label-md font-label-md">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-64 p-margin-desktop bg-surface overflow-y-auto h-screen relative">
+<div class="max-w-4xl mx-auto pb-24">
+<!-- Page Header -->
+<header class="mb-10 flex justify-between items-end">
+<div>
+<nav class="flex text-label-sm font-label-sm text-outline mb-2">
+<span>Settings</span>
+<span class="mx-2">/</span>
+<span class="text-on-surface">Interface</span>
+</nav>
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Banners &amp; Notifications</h2>
+</div>
+<!-- Global Save Action -->
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg text-label-md font-label-md font-bold hover:bg-primary-container hover:shadow-[0px_10px_20px_rgba(27,67,50,0.08)] transition-all duration-300 flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">save</span>
+                    Save Changes
+                </button>
+</header>
+<!-- Grid Layout for Settings -->
+<div class="grid grid-cols-1 gap-8">
+<!-- Section: Dynamic Announcement Banner -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 shadow-sm">
+<div class="flex justify-between items-center mb-6 border-b border-surface-variant pb-4">
+<div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-1">Announcement Banner</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Global message displayed at the top of the storefront.</p>
+</div>
+<!-- Toggle Active -->
+<div class="flex items-center gap-3">
+<span class="text-label-md font-label-md text-on-surface-variant">Status</span>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-surface-container-lowest border-4 border-surface-variant appearance-none cursor-pointer z-10 top-0 transition-all duration-300" id="toggle-banner" name="toggle-banner" style="right: 0; border-color: #012d1d;" type="checkbox" />
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-variant cursor-pointer transition-colors duration-300" for="toggle-banner" style="background-color: #012d1d;" />
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<!-- Message Input -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-2" for="banner-message">Display Message</label>
+<textarea class="w-full bg-surface-container-low border border-outline-variant text-on-surface text-body-md font-body-md rounded-lg p-4 focus:ring-primary focus:border-primary transition-colors resize-none placeholder:text-outline" id="banner-message" placeholder="Enter the promotional text here..." rows="2">Free expedited shipping on all orders over $100. Use code WELLNESS24.</textarea>
+<p class="text-label-sm font-label-sm text-outline mt-2 text-right">0 / 120 characters</p>
+</div>
+<!-- Link Input -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-2" for="banner-link">Action URL (Optional)</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">link</span>
+</div>
+<input class="w-full pl-12 bg-surface-container-low border border-outline-variant text-on-surface text-body-md font-body-md rounded-lg p-3 focus:ring-primary focus:border-primary transition-colors placeholder:text-outline" id="banner-link" placeholder="https://..." type="url" value="/collections/new-arrivals" />
+</div>
+</div>
+<!-- Color Selection (Brand specific swatches) -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-3">Banner Background Theme</label>
+<div class="flex gap-4">
+<label class="cursor-pointer group relative">
+<input checked="" class="sr-only peer" name="banner-color" type="radio" value="primary" />
+<div class="w-10 h-10 rounded-full bg-primary ring-2 ring-transparent peer-checked:ring-primary peer-checked:ring-offset-2 transition-all" />
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-label-sm font-label-sm text-outline opacity-0 group-hover:opacity-100 transition-opacity">Forest</span>
+</label>
+<label class="cursor-pointer group relative">
+<input class="sr-only peer" name="banner-color" type="radio" value="error" />
+<div class="w-10 h-10 rounded-full bg-error ring-2 ring-transparent peer-checked:ring-error peer-checked:ring-offset-2 transition-all" />
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-label-sm font-label-sm text-outline opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Heritage Red</span>
+</label>
+<label class="cursor-pointer group relative">
+<input class="sr-only peer" name="banner-color" type="radio" value="surface" />
+<div class="w-10 h-10 rounded-full bg-surface-variant ring-2 ring-transparent peer-checked:ring-outline peer-checked:ring-offset-2 transition-all border border-outline-variant" />
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-label-sm font-label-sm text-outline opacity-0 group-hover:opacity-100 transition-opacity">Neutral</span>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: System Notifications -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 shadow-sm">
+<div class="mb-6 border-b border-surface-variant pb-4">
+<h3 class="text-headline-md font-headline-md text-on-surface mb-1">System Notifications</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Manage alerts sent to administrative staff.</p>
+</div>
+<div class="space-y-4">
+<!-- Notification Item 1 -->
+<div class="flex items-start justify-between p-4 rounded-lg hover:bg-surface-container-low transition-colors duration-200">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary mt-1">shopping_bag</span>
+<div>
+<p class="text-label-md font-label-md text-on-surface">New Order Alerts</p>
+<p class="text-body-md font-body-md text-on-surface-variant text-sm mt-1">Receive an email immediately when a new purchase is finalized.</p>
+</div>
+</div>
+<div class="relative inline-block w-10 mr-2 align-middle select-none">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-surface-container-lowest border-4 border-surface-variant appearance-none cursor-pointer z-10 top-0.5 right-0 border-primary transition-all duration-300" type="checkbox" />
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer transition-colors duration-300" />
+</div>
+</div>
+<!-- Notification Item 2 -->
+<div class="flex items-start justify-between p-4 rounded-lg hover:bg-surface-container-low transition-colors duration-200">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary mt-1">inventory</span>
+<div>
+<p class="text-label-md font-label-md text-on-surface">Low Inventory Warnings</p>
+<p class="text-body-md font-body-md text-on-surface-variant text-sm mt-1">Trigger alerts when product SKUs fall below 10 units.</p>
+</div>
+</div>
+<div class="relative inline-block w-10 mr-2 align-middle select-none">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-surface-container-lowest border-4 border-surface-variant appearance-none cursor-pointer z-10 top-0.5 right-0 border-primary transition-all duration-300" type="checkbox" />
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer transition-colors duration-300" />
+</div>
+</div>
+<!-- Notification Item 3 -->
+<div class="flex items-start justify-between p-4 rounded-lg hover:bg-surface-container-low transition-colors duration-200">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-outline mt-1">summarize</span>
+<div>
+<p class="text-label-md font-label-md text-on-surface">Daily Analytics Summary</p>
+<p class="text-body-md font-body-md text-on-surface-variant text-sm mt-1">Receive a morning brief of traffic and sales performance.</p>
+</div>
+</div>
+<div class="relative inline-block w-10 mr-2 align-middle select-none">
+<input class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-surface-container-lowest border-4 border-surface-variant appearance-none cursor-pointer z-10 top-0.5 left-0 transition-all duration-300" type="checkbox" />
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-variant cursor-pointer transition-colors duration-300" />
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Inline script for basic toggle logic mirroring UI state -->
+<script>
+        document.querySelectorAll('input[type="checkbox"]').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                const label = this.nextElementSibling;
+                if (this.checked) {
+                    this.style.right = '0';
+                    this.style.left = 'auto';
+                    this.style.borderColor = '#012d1d'; // Primary color
+                    label.style.backgroundColor = '#012d1d';
+                } else {
+                    this.style.left = '0';
+                    this.style.right = 'auto';
+                    this.style.borderColor = '#e1e3e4'; // Surface variant
+                    label.style.backgroundColor = '#e1e3e4';
+                }
+            });
+            // Init state visually for custom toggles without pure CSS sibling selectors if needed, 
+            // though CSS handles most of it above.
+        });
+    </script>
+</body></html>

@@ -1,0 +1,358 @@
+---
+---
+
+<html lang="en"><head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Ayurveda Admin - Add Product</title>
+<script src="/assets/03ba5d9f9e95fc3599acebcbe7e5fb9a.js" is:inline="" />
+<link href="/assets/a39f5c6fcbb87b419667ec984d2e579a.css" rel="stylesheet" />
+<link href="/assets/09bdb3377de91720bdf4b92fd6e8ba73.css" rel="stylesheet" />
+<link href="/assets/a39f5c6fcbb87b419667ec984d2e579a.css" rel="stylesheet" />
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f3f4f5",
+                        "on-secondary-container": "#19724f",
+                        "on-background": "#191c1d",
+                        "on-secondary-fixed": "#002113",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-container": "#edeeef",
+                        "surface-bright": "#f8f9fa",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "tertiary-fixed": "#ffdad7",
+                        "tertiary": "#550009",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "secondary-container": "#a0f4c8",
+                        "surface-variant": "#e1e3e4",
+                        "secondary-fixed-dim": "#85d7ad",
+                        "on-primary-container": "#86af99",
+                        "inverse-primary": "#a5d0b9",
+                        "outline": "#717973",
+                        "tertiary-container": "#7e0013",
+                        "on-tertiary-fixed-variant": "#930018",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "tertiary-fixed-dim": "#ffb3af",
+                        "primary-fixed": "#c1ecd4",
+                        "primary": "#012d1d",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c1c8c2",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed": "#002114",
+                        "surface-dim": "#d9dadb",
+                        "surface-container-high": "#e7e8e9",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e1e3e4",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#410005",
+                        "on-tertiary-container": "#ff807c",
+                        "inverse-surface": "#2e3132",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f8f9fa",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#a0f4c8",
+                        "secondary": "#0e6c4a",
+                        "surface-tint": "#3f6653",
+                        "primary-container": "#1b4332",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#414844"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Noto Serif"],
+                        "headline-lg-mobile": ["Noto Serif"],
+                        "body-lg": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "headline-lg": ["Noto Serif"],
+                        "label-md": ["Manrope"],
+                        "display-lg": ["Noto Serif"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .dialog-backdrop {
+            background-color: rgba(1, 45, 29, 0.4);
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-full py-base fixed left-0 top-0 w-64 bg-primary text-on-primary shadow-lg z-40">
+<div class="px-6 pb-6 pt-4 border-b border-on-primary-fixed-variant mb-4">
+<h1 class="text-headline-sm font-headline-sm font-bold text-on-primary">Ayurveda Admin</h1>
+<p class="text-label-sm font-label-sm text-primary-fixed-dim mt-1">Management Portal</p>
+</div>
+<div class="flex-1 overflow-y-auto flex flex-col gap-1">
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+<a class="bg-secondary-fixed-dim text-on-secondary-fixed rounded-lg mx-2 flex items-center gap-3 p-3 scale-98 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="text-label-md font-label-md">Products</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-label-md font-label-md">Orders</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-label-md font-label-md">Customers</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-label-md font-label-md">Analytics</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-label-md font-label-md">Settings</span>
+</a>
+</div>
+<div class="pt-4 border-t border-on-primary-fixed-variant mt-4 flex flex-col gap-1">
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="text-label-md font-label-md">Help Center</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-label-md font-label-md">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 w-full p-margin-mobile md:p-margin-desktop bg-background min-h-screen">
+<header class="mb-10 flex justify-between items-end">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Product Management</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2">Add new botanicals and manage your inventory.</p>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter max-w-container-max mx-auto">
+<!-- Add Product Form (Bento Style Card) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl shadow-[0px_10px_20px_rgba(27,67,50,0.08)] border border-outline-variant p-6 h-fit">
+<h3 class="text-headline-md font-headline-md text-primary mb-6 border-b border-outline-variant pb-4">Add Product</h3>
+<form class="space-y-6">
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-2" for="productName">Product Name</label>
+<input class="w-full bg-surface-bright border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary text-body-md p-3" id="productName" placeholder="e.g. Ashwagandha Root Extract" type="text" />
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-2" for="productDesc">Description</label>
+<textarea class="w-full bg-surface-bright border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary text-body-md p-3" id="productDesc" placeholder="Describe the botanical properties and benefits..." rows="4" />
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-2" for="productPrice">Price ($)</label>
+<input class="w-full bg-surface-bright border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary text-body-md p-3" id="productPrice" placeholder="0.00" step="0.01" type="number" />
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-2" for="productSKU">SKU</label>
+<input class="w-full bg-surface-bright border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary text-body-md p-3" id="productSKU" placeholder="e.g. ASH-001" type="text" />
+</div>
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-2">Product Images (Up to 5)</label>
+<div class="border-2 border-dashed border-outline-variant rounded-lg p-8 flex flex-col items-center justify-center bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer text-center">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant mb-2">add_photo_alternate</span>
+<p class="text-body-md font-body-md text-on-surface-variant">Drag and drop images here, or click to browse.</p>
+<p class="text-label-sm font-label-sm text-outline mt-1">High-quality square images recommended.</p>
+</div>
+<!-- Preview Thumbnails Area (Empty state) -->
+<div class="flex gap-2 mt-4 overflow-x-auto pb-2">
+<div class="w-16 h-16 rounded border border-outline-variant bg-surface flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-sm">image</span>
+</div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant flex justify-end">
+<button class="bg-primary text-on-primary text-label-md font-label-md uppercase px-6 py-3 rounded shadow-[0px_10px_20px_rgba(27,67,50,0.08)] hover:bg-primary-container transition-colors" type="button">
+                            Save Product
+                        </button>
+</div>
+</form>
+</div>
+<!-- Product Inventory List -->
+<div class="lg:col-span-7 space-y-6">
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_10px_20px_rgba(27,67,50,0.08)] border border-outline-variant overflow-hidden">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<h3 class="text-headline-md font-headline-md text-primary">Product Inventory</h3>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 border border-outline-variant rounded-full bg-surface-bright text-body-md focus:border-primary focus:ring-1 focus:ring-primary w-64" placeholder="Search inventory..." type="text" />
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">
+<th class="p-4 border-b border-outline-variant font-semibold">Product</th>
+<th class="p-4 border-b border-outline-variant font-semibold">SKU</th>
+<th class="p-4 border-b border-outline-variant font-semibold">Price</th>
+<th class="p-4 border-b border-outline-variant font-semibold">Status</th>
+<th class="p-4 border-b border-outline-variant font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="text-body-md font-body-md">
+<!-- Row 1 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="p-4 flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-surface-variant flex-shrink-0 bg-cover bg-center" data-alt="A close up shot of a small brown glass apothecary bottle containing a herbal tincture, placed on a clean white surface with a few green leaves beside it. The lighting is bright and modern, evoking a sense of clinical purity and natural medicine in a high-key setting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBKrc0QWcyvCtjT1TOMaLN_tbibttn09WgezmC_gBOBgGm5X24KLtAdbPMrWP9_wnej9AvCEFGVKTM3aSAaye9cXcjnsA13YTdWmWNA2H-19Ww2WO7OgJKYeYfZuvlhdK4gsW5SQx2cfSJGHSGtLjUhZUV_aPZCHy6aJnXViGPypA7BiRfeE804tT9Rgewa3GLb1jNNNyhcJcyfkbwSH-r_o-EQV2-_PiF6cOp32erxe7u9_dtsrAJrWiX_8KAiN7Z4HJdZmc3Ay1k');" />
+<span class="font-semibold text-primary">Ashwagandha Root Extract</span>
+</td>
+<td class="p-4 text-on-surface-variant">ASH-001</td>
+<td class="p-4">$24.00</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-sm">Active</span>
+</td>
+<td class="p-4 text-right">
+<button class="text-primary hover:text-primary-container p-2 transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="text-[#D90429] hover:text-tertiary-container p-2 transition-colors" onclick="openDeleteDialog('Ashwagandha Root Extract')">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="p-4 flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-surface-variant flex-shrink-0 bg-cover bg-center" data-alt="A macro view of dried Triphala powder in a shallow, minimalist white ceramic bowl, resting on a light grey textured background. The lighting is soft and diffused, highlighting the earthy tones of the powder and creating a serene, natural aesthetic fitting for an apothecary." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDAwpwOyyDjeZihe9M3buoGvIhoWfw065QIxavdm0vgleMSjO9EhKHoxZgu0G94cs_JsfU7N8mGFOCLHQLsIYnD7_Gcr8H3fv6gmUrPCOylrcc7k_N16Q2kaOLJZ2GP66La2jecuidCNfBlvP7hTrAdjt-wFPztIq_eBYd-kDbGvn7Pf5KROznVenMP0CmE38lojAGTZHFHH-fp-2UptXD2GfDX7lmAIiDh3CrJXSK_Y7FIxTmoGCgoT1YjmCgqYWMpIwxvm3sH3aw');" />
+<span class="font-semibold text-primary">Triphala Powder Organic</span>
+</td>
+<td class="p-4 text-on-surface-variant">TRI-002</td>
+<td class="p-4">$18.50</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-sm">Active</span>
+</td>
+<td class="p-4 text-right">
+<button class="text-primary hover:text-primary-container p-2 transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="text-[#D90429] hover:text-tertiary-container p-2 transition-colors" onclick="openDeleteDialog('Triphala Powder Organic')">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-4 flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-surface-variant flex-shrink-0 bg-cover bg-center" data-alt="A beautifully crafted amber glass dropper bottle of Brahmi oil standing upright next to fresh green herbs on a pristine marble surface. The light is bright and airy, reflecting off the glass to convey a premium, clean, and modern botanical aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCdoAtndl-7WNcsT_2OxwCkyPkxxQ8C6fFJMFzBlgaN1GD11oWivIkL4LJEj5J2EaMiX1vBXOj6o_AwO1Gx7Mjh9zk8q8usLDwfnNUT81Sy9luwS2N35E0t5LZwKCbnqjQO9B1CMEFQECEwaSJNap5fg5XbPZDbga_HQbUbYUeC_tzQW6hsylZbLEgD37bXY8uiLqvKKwCpABGEoPlHu80YaiXJfJlVn0GpPU9SoWjd0p-S5nP4xSxaRod4s0dLKJNePUQHhmdsuW8');" />
+<span class="font-semibold text-primary">Brahmi Mind Wellness Oil</span>
+</td>
+<td class="p-4 text-on-surface-variant">BRA-003</td>
+<td class="p-4">$32.00</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-surface-dim text-on-surface-variant text-label-sm border border-outline-variant">Draft</span>
+</td>
+<td class="p-4 text-right">
+<button class="text-primary hover:text-primary-container p-2 transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="text-[#D90429] hover:text-tertiary-container p-2 transition-colors" onclick="openDeleteDialog('Brahmi Mind Wellness Oil')">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-outline-variant bg-surface-container-low flex justify-between items-center text-label-md font-label-md text-on-surface-variant">
+<span>Showing 1 to 3 of 12 entries</span>
+<div class="flex gap-2">
+<button class="px-3 py-1 border border-outline-variant rounded hover:bg-surface transition-colors disabled:opacity-50" disabled="">Prev</button>
+<button class="px-3 py-1 border border-outline-variant rounded hover:bg-surface transition-colors">Next</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Delete Confirmation Dialog (Hidden by default) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300" id="deleteDialog">
+<!-- Backdrop -->
+<div class="absolute inset-0 dialog-backdrop" onclick="closeDeleteDialog()" />
+<!-- Dialog Content -->
+<div class="relative bg-surface-container-lowest rounded-xl shadow-2xl border border-outline-variant w-full max-w-md mx-4 p-6 transform scale-95 transition-transform duration-300" id="deleteDialogContent">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[#D90429] text-3xl">warning</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface">Confirm Deletion</h3>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-8">
+                Are you sure you want to remove <strong class="text-on-surface font-semibold" id="deleteProductName">this product</strong>? This action cannot be undone and will permanently delete all associated data.
+            </p>
+<div class="flex justify-end gap-3">
+<button class="px-5 py-2 rounded text-primary text-label-md font-label-md uppercase hover:bg-surface-container transition-colors" onclick="closeDeleteDialog()" type="button">
+                    Cancel
+                </button>
+<button class="px-5 py-2 rounded bg-[#D90429] text-white text-label-md font-label-md uppercase shadow-[0px_10px_20px_rgba(217,4,41,0.2)] hover:bg-tertiary-container transition-colors" onclick="confirmDelete()" type="button">
+                    Delete Product
+                </button>
+</div>
+</div>
+</div>
+<script>
+        const dialog = document.getElementById('deleteDialog');
+        const dialogContent = document.getElementById('deleteDialogContent');
+        const productNameSpan = document.getElementById('deleteProductName');
+
+        function openDeleteDialog(productName) {
+            productNameSpan.textContent = productName;
+            dialog.classList.remove('hidden');
+            // Small delay to allow display:block to apply before animating opacity
+            setTimeout(() => {
+                dialog.classList.remove('opacity-0');
+                dialogContent.classList.remove('scale-95');
+                dialogContent.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeDeleteDialog() {
+            dialog.classList.add('opacity-0');
+            dialogContent.classList.remove('scale-100');
+            dialogContent.classList.add('scale-95');
+            setTimeout(() => {
+                dialog.classList.add('hidden');
+            }, 300); // match transition duration
+        }
+
+        function confirmDelete() {
+            // Add deletion logic here
+            console.log('Product deleted:', productNameSpan.textContent);
+            closeDeleteDialog();
+        }
+    </script>
+</body></html>

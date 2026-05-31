@@ -1,0 +1,297 @@
+---
+---
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Shopping Cart - Ayurveda</title>
+<script src="/assets/03ba5d9f9e95fc3599acebcbe7e5fb9a.js" is:inline="" />
+<link href="/assets/a39f5c6fcbb87b419667ec984d2e579a.css" rel="stylesheet" />
+<link href="/assets/501fd1ce718d07e6c6ddd4f742852aa1.css" rel="stylesheet" />
+<link href="/assets/a39f5c6fcbb87b419667ec984d2e579a.css" rel="stylesheet" />
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#7e0013",
+                        "on-secondary-fixed": "#002113",
+                        "surface-container": "#edeeef",
+                        "primary-container": "#1b4332",
+                        "primary-fixed": "#c1ecd4",
+                        "on-tertiary-container": "#ff807c",
+                        "secondary": "#0e6c4a",
+                        "primary": "#012d1d",
+                        "outline": "#717973",
+                        "surface-container-low": "#f3f4f5",
+                        "inverse-on-surface": "#f0f1f2",
+                        "outline-variant": "#c1c8c2",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb3af",
+                        "on-secondary-container": "#19724f",
+                        "on-primary-container": "#86af99",
+                        "surface-tint": "#3f6653",
+                        "surface-container-high": "#e7e8e9",
+                        "tertiary-fixed": "#ffdad7",
+                        "secondary-container": "#a0f4c8",
+                        "on-tertiary-fixed": "#410005",
+                        "on-tertiary-fixed-variant": "#930018",
+                        "surface-dim": "#d9dadb",
+                        "on-secondary-fixed-variant": "#005236",
+                        "secondary-fixed": "#a0f4c8",
+                        "inverse-surface": "#2e3132",
+                        "on-primary-fixed": "#002114",
+                        "surface-variant": "#e1e3e4",
+                        "on-surface-variant": "#414844",
+                        "background": "#f8f9fa",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-background": "#191c1d",
+                        "inverse-primary": "#a5d0b9",
+                        "secondary-fixed-dim": "#85d7ad",
+                        "on-surface": "#191c1d",
+                        "surface-bright": "#f8f9fa",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#550009",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "brand-red": "#D90429",
+                        "brand-green": "#1B4332"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "base": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Noto Serif"],
+                        "body-md": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-md": ["Noto Serif"],
+                        "headline-lg-mobile": ["Noto Serif"],
+                        "label-sm": ["Manrope"],
+                        "headline-lg": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .soft-lift:hover {
+            box-shadow: 0px 10px 20px rgba(27, 67, 50, 0.08);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+        /* Custom number input hide arrows */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface border-b border-outline-variant w-full px-margin-desktop max-w-container-max mx-auto h-20 flex justify-between items-center sticky top-0 z-50">
+<div class="flex items-center">
+<span class="text-headline-md font-headline-md font-bold text-primary">Ayurveda</span>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-200" href="#">Home</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-200" href="#">Products</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-200" href="#">Contact us</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-200" href="#">About us</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-200" href="#">FAQ</a>
+</nav>
+<div class="flex items-center gap-6">
+<button aria-label="search" class="text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button aria-label="person" class="text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+<button aria-label="shopping_bag" class="text-primary font-bold border-b-2 border-primary pb-1 relative transition-colors duration-200 flex items-center">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute -top-1 -right-2 bg-brand-red text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center">2</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<div class="mb-12">
+<h1 class="font-display-lg text-display-lg text-primary mb-2 hidden md:block">Shopping Cart</h1>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2 md:hidden">Shopping Cart</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Review your items before proceeding to checkout.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Cart Items List (Left Column) -->
+<div class="lg:col-span-8 space-y-6">
+<!-- Table Header (Desktop only) -->
+<div class="hidden md:grid grid-cols-12 gap-4 pb-4 border-b border-outline-variant text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<div class="col-span-6">Product</div>
+<div class="col-span-2 text-center">Price</div>
+<div class="col-span-2 text-center">Quantity</div>
+<div class="col-span-2 text-right">Total</div>
+</div>
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 md:p-6 border border-outline-variant flex flex-col md:grid md:grid-cols-12 md:gap-4 items-center soft-lift relative group">
+<!-- Mobile Remove Button -->
+<button aria-label="Remove item" class="md:hidden absolute top-4 right-4 text-brand-green font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-lg" data-icon="close">close</span>
+</button>
+<!-- Product Info -->
+<div class="col-span-6 w-full flex items-center gap-6 mb-4 md:mb-0">
+<div class="w-24 h-24 rounded bg-surface-variant flex-shrink-0 overflow-hidden">
+<img alt="Product image of Nirogi Pachan Churna" class="w-full h-full object-cover" src="/assets/82977c12a918202c1ad83faaf0c13f58.png" />
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-md text-headline-md text-primary leading-tight">Nirogi Pachan Churna</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">250g Jar</p>
+</div>
+</div>
+<!-- Price -->
+<div class="col-span-2 w-full md:w-auto flex justify-between md:justify-center items-center mb-4 md:mb-0">
+<span class="md:hidden font-label-md text-label-md text-on-surface-variant">Price:</span>
+<span class="font-body-lg text-body-lg text-on-surface">₹450.00</span>
+</div>
+<!-- Quantity -->
+<div class="col-span-2 w-full md:w-auto flex justify-between md:justify-center items-center mb-4 md:mb-0">
+<span class="md:hidden font-label-md text-label-md text-on-surface-variant">Quantity:</span>
+<div class="flex items-center border border-outline-variant rounded">
+<button aria-label="Decrease quantity" class="px-3 py-1 text-on-surface hover:bg-surface-variant transition-colors">-</button>
+<input class="w-10 text-center border-none bg-transparent p-0 font-label-md text-label-md focus:ring-0 text-on-surface" min="1" type="number" value="1" />
+<button aria-label="Increase quantity" class="px-3 py-1 text-on-surface hover:bg-surface-variant transition-colors">+</button>
+</div>
+</div>
+<!-- Total & Remove -->
+<div class="col-span-2 w-full flex justify-between md:justify-end items-center">
+<span class="md:hidden font-label-md text-label-md text-on-surface-variant">Total:</span>
+<span class="font-headline-md text-headline-md text-primary">₹450.00</span>
+</div>
+<!-- Desktop Remove Button -->
+<button aria-label="Remove item" class="hidden md:flex absolute top-4 right-4 md:static md:col-span-12 justify-end text-brand-green font-label-md text-label-md uppercase tracking-wider hover:underline opacity-0 group-hover:opacity-100 transition-opacity mt-2">
+                        Remove
+                    </button>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 md:p-6 border border-outline-variant flex flex-col md:grid md:grid-cols-12 md:gap-4 items-center soft-lift relative group">
+<!-- Mobile Remove Button -->
+<button aria-label="Remove item" class="md:hidden absolute top-4 right-4 text-brand-green font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-lg" data-icon="close">close</span>
+</button>
+<!-- Product Info -->
+<div class="col-span-6 w-full flex items-center gap-6 mb-4 md:mb-0">
+<div class="w-24 h-24 rounded bg-surface-variant flex-shrink-0 overflow-hidden">
+<img alt="Product image of Horse Fire Shilajit" class="w-full h-full object-cover" src="/assets/28f5847ddfb522360cc98d4480073469.png" />
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-md text-headline-md text-primary leading-tight">Horse Fire Shilajit</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">20g Resin</p>
+</div>
+</div>
+<!-- Price -->
+<div class="col-span-2 w-full md:w-auto flex justify-between md:justify-center items-center mb-4 md:mb-0">
+<span class="md:hidden font-label-md text-label-md text-on-surface-variant">Price:</span>
+<span class="font-body-lg text-body-lg text-on-surface">₹1,200.00</span>
+</div>
+<!-- Quantity -->
+<div class="col-span-2 w-full md:w-auto flex justify-between md:justify-center items-center mb-4 md:mb-0">
+<span class="md:hidden font-label-md text-label-md text-on-surface-variant">Quantity:</span>
+<div class="flex items-center border border-outline-variant rounded">
+<button aria-label="Decrease quantity" class="px-3 py-1 text-on-surface hover:bg-surface-variant transition-colors">-</button>
+<input class="w-10 text-center border-none bg-transparent p-0 font-label-md text-label-md focus:ring-0 text-on-surface" min="1" type="number" value="2" />
+<button aria-label="Increase quantity" class="px-3 py-1 text-on-surface hover:bg-surface-variant transition-colors">+</button>
+</div>
+</div>
+<!-- Total & Remove -->
+<div class="col-span-2 w-full flex justify-between md:justify-end items-center">
+<span class="md:hidden font-label-md text-label-md text-on-surface-variant">Total:</span>
+<span class="font-headline-md text-headline-md text-primary">₹2,400.00</span>
+</div>
+<!-- Desktop Remove Button -->
+<button aria-label="Remove item" class="hidden md:flex absolute top-4 right-4 md:static md:col-span-12 justify-end text-brand-green font-label-md text-label-md uppercase tracking-wider hover:underline opacity-0 group-hover:opacity-100 transition-opacity mt-2">
+                        Remove
+                    </button>
+</div>
+</div>
+<!-- Order Summary (Right Column) -->
+<div class="lg:col-span-4 mt-8 lg:mt-0">
+<div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant sticky top-28">
+<h2 class="font-headline-lg text-headline-lg text-primary border-b border-outline-variant pb-4 mb-6">Order Summary</h2>
+<div class="space-y-4 font-body-md text-body-md text-on-surface mb-6">
+<div class="flex justify-between">
+<span>Subtotal</span>
+<span class="font-label-md text-label-md">₹2,850.00</span>
+</div>
+<div class="flex justify-between">
+<span>Shipping</span>
+<span class="font-label-md text-label-md">Calculated at checkout</span>
+</div>
+<div class="flex justify-between">
+<span>Taxes</span>
+<span class="font-label-md text-label-md">Included</span>
+</div>
+</div>
+<div class="flex justify-between items-center border-t border-outline-variant pt-6 mb-8">
+<span class="font-headline-md text-headline-md text-primary">Total</span>
+<span class="font-display-lg text-display-lg text-brand-red text-[32px] md:text-display-lg">₹2,850.00</span>
+</div>
+<button class="w-full bg-brand-red text-white font-label-md text-label-md uppercase tracking-wider py-4 px-6 rounded hover:bg-tertiary-container transition-colors duration-300 soft-lift flex justify-center items-center gap-2">
+                        BUY NOW
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<div class="mt-6 flex items-center justify-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-base" data-icon="lock">lock</span>
+                        Secure Checkout
+                    </div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant w-full py-12 px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto mt-auto">
+<div class="md:col-span-1">
+<span class="text-headline-md font-headline-md text-primary">Ayurveda</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-4">© 2024 Ayurveda The Ayurveda People. All rights reserved.</p>
+</div>
+<div class="md:col-span-3 flex flex-wrap gap-6 md:justify-end">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4" href="#">Shipping Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4" href="#">Refund Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4" href="#">Contact Us</a>
+</div>
+</footer>
+</body></html>

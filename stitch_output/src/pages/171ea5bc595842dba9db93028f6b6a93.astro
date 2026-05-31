@@ -1,0 +1,330 @@
+---
+---
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Ayurveda Admin Dashboard</title>
+<script src="/assets/03ba5d9f9e95fc3599acebcbe7e5fb9a.js" is:inline="" />
+<link href="/assets/a39f5c6fcbb87b419667ec984d2e579a.css" rel="stylesheet" />
+<link href="/assets/5808ac30209a89430c026a91feb86093.css" rel="stylesheet" />
+<link href="/assets/a39f5c6fcbb87b419667ec984d2e579a.css" rel="stylesheet" />
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#ffb3af",
+                        "inverse-primary": "#a5d0b9",
+                        "on-surface-variant": "#414844",
+                        "on-tertiary-fixed": "#410005",
+                        "tertiary": "#550009",
+                        "on-secondary-container": "#19724f",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#a0f4c8",
+                        "surface-dim": "#d9dadb",
+                        "tertiary-container": "#7e0013",
+                        "on-background": "#191c1d",
+                        "on-primary-container": "#86af99",
+                        "inverse-surface": "#2e3132",
+                        "secondary": "#0e6c4a",
+                        "on-primary-fixed": "#002114",
+                        "surface": "#f8f9fa",
+                        "outline": "#717973",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#002113",
+                        "background": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "surface-bright": "#f8f9fa",
+                        "primary-container": "#1b4332",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#930018",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-tint": "#3f6653",
+                        "surface-container-highest": "#e1e3e4",
+                        "outline-variant": "#c1c8c2",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-container": "#edeeef",
+                        "primary-fixed": "#c1ecd4",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#a0f4c8",
+                        "secondary-fixed-dim": "#85d7ad",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-tertiary-container": "#ff807c",
+                        "surface-variant": "#e1e3e4",
+                        "tertiary-fixed": "#ffdad7",
+                        "primary": "#012d1d",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "surface-container-low": "#f3f4f5",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Noto Serif"],
+                        "label-sm": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "headline-md": ["Noto Serif"],
+                        "headline-lg-mobile": ["Noto Serif"],
+                        "display-lg": ["Noto Serif"],
+                        "body-lg": ["Manrope"],
+                        "label-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex">
+<!-- SideNavBar Component -->
+<nav class="fixed left-0 top-0 h-full w-64 bg-primary text-on-primary shadow-lg flex flex-col py-base z-50">
+<!-- Header -->
+<div class="px-margin-desktop py-gutter mb-gutter">
+<div class="flex items-center gap-3 mb-2">
+<img alt="Admin User Profile" class="w-10 h-10 rounded-full" data-alt="A close up portrait of a professional looking individual, serving as an avatar. Modern, clean, well lit, against a neutral background." src="/assets/d86b5abf53d86101c16e94539565cd05.png" />
+<div>
+<h1 class="text-headline-sm font-headline-sm font-bold text-on-primary">Ayurveda Admin</h1>
+<p class="text-label-sm font-label-sm text-primary-fixed-dim">Management Portal</p>
+</div>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 overflow-y-auto">
+<ul class="space-y-2">
+<li>
+<a class="bg-secondary-fixed-dim text-on-secondary-fixed rounded-lg mx-2 flex items-center gap-3 p-3 text-label-md font-label-md scale-98 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                        Dashboard
+                    </a>
+</li>
+<li>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 text-label-md font-label-md hover:bg-on-primary-fixed-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                        Products
+                    </a>
+</li>
+<li>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 text-label-md font-label-md hover:bg-on-primary-fixed-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+                        Orders
+                        <span class="ml-auto bg-error text-on-error text-label-sm font-label-sm rounded-full w-5 h-5 flex items-center justify-center">3</span>
+</a>
+</li>
+<li>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 text-label-md font-label-md hover:bg-on-primary-fixed-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                        Customers
+                    </a>
+</li>
+<li>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 text-label-md font-label-md hover:bg-on-primary-fixed-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+                        Analytics
+                    </a>
+</li>
+<li>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 text-label-md font-label-md hover:bg-on-primary-fixed-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                        Settings
+                    </a>
+</li>
+</ul>
+</div>
+<!-- Footer Links -->
+<div class="mt-auto border-t border-on-primary-fixed-variant pt-4">
+<ul class="space-y-2">
+<li>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 text-label-md font-label-md hover:bg-on-primary-fixed-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                        Help Center
+                    </a>
+</li>
+<li>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 text-label-md font-label-md hover:bg-on-primary-fixed-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                        Logout
+                    </a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 p-margin-desktop bg-surface min-h-screen">
+<!-- Top Bar Area -->
+<header class="flex justify-between items-center mb-10">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Dashboard Overview</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Welcome back, here's what's happening today.</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<!-- KPI Metrics Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+<!-- Metric Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant hover:shadow-[0px_10px_20px_rgba(27,67,50,0.08)] transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<p class="text-label-md font-label-md text-on-surface-variant">Total Users</p>
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" data-icon="group">group</span>
+</div>
+</div>
+<h3 class="text-headline-lg font-headline-lg text-on-surface">12,480</h3>
+<p class="text-label-sm font-label-sm text-secondary mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                    +12% from last month
+                </p>
+</div>
+<!-- Metric Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant hover:shadow-[0px_10px_20px_rgba(27,67,50,0.08)] transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<p class="text-label-md font-label-md text-on-surface-variant">Total Orders</p>
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" data-icon="shopping_bag">shopping_bag</span>
+</div>
+</div>
+<h3 class="text-headline-lg font-headline-lg text-on-surface">8,102</h3>
+<p class="text-label-sm font-label-sm text-secondary mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                    +5.4% from last month
+                </p>
+</div>
+<!-- Metric Card 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant hover:shadow-[0px_10px_20px_rgba(27,67,50,0.08)] transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<p class="text-label-md font-label-md text-on-surface-variant">Total Revenue</p>
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" data-icon="payments">payments</span>
+</div>
+</div>
+<h3 class="text-headline-lg font-headline-lg text-on-surface">$245,090</h3>
+<p class="text-label-sm font-label-sm text-secondary mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                    +18% from last month
+                </p>
+</div>
+</div>
+<!-- Recent Orders Table Section -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden">
+<div class="px-6 py-5 border-b border-outline-variant flex justify-between items-center bg-surface-bright">
+<h3 class="text-headline-md font-headline-md text-on-surface">Recent Orders</h3>
+<button class="text-label-md font-label-md text-secondary hover:text-primary transition-colors flex items-center gap-1">
+                    View All <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-container-lowest">
+<th class="px-6 py-4 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Order ID</th>
+<th class="px-6 py-4 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Customer</th>
+<th class="px-6 py-4 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Date</th>
+<th class="px-6 py-4 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Amount</th>
+<th class="px-6 py-4 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-4 text-body-md font-body-md text-on-surface font-medium">#ORD-0921</td>
+<td class="px-6 py-4 text-body-md font-body-md text-on-surface-variant">Eleanor Rigby</td>
+<td class="px-6 py-4 text-body-md font-body-md text-on-surface-variant">Oct 24, 2024</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-container text-on-secondary-container">
+                                    Delivered
+                                </span>
+</td>
+<td class="px-6 py-4 text-body-md font-body-md text-on-surface">$124.00</td>
+<td class="px-6 py-4 text-right">
+<button class="text-label-md font-label-md text-primary hover:text-on-primary-fixed-variant transition-colors">Update</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-4 text-body-md font-body-md text-on-surface font-medium">#ORD-0922</td>
+<td class="px-6 py-4 text-body-md font-body-md text-on-surface-variant">John Smith</td>
+<td class="px-6 py-4 text-body-md font-body-md text-on-surface-variant">Oct 24, 2024</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary-fixed text-on-tertiary-fixed">
+                                    Pending
+                                </span>
+</td>
+<td class="px-6 py-4 text-body-md font-body-md text-on-surface">$45.50</td>
+<td class="px-6 py-4 text-right">
+<button class="text-label-md font-label-md text-primary hover:text-on-primary-fixed-variant transition-colors">Update</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-4 text-body-md font-body-md text-on-surface font-medium">#ORD-0923</td>
+<td class="px-6 py-4 text-body-md font-body-md text-on-surface-variant">Alice Wonderland</td>
+<td class="px-6 py-4 text-body-md font-body-md text-on-surface-variant">Oct 23, 2024</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-tint text-on-primary opacity-80">
+                                    Shipped
+                                </span>
+</td>
+<td class="px-6 py-4 text-body-md font-body-md text-on-surface">$89.99</td>
+<td class="px-6 py-4 text-right">
+<button class="text-label-md font-label-md text-primary hover:text-on-primary-fixed-variant transition-colors">Update</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-4 text-body-md font-body-md text-on-surface font-medium">#ORD-0924</td>
+<td class="px-6 py-4 text-body-md font-body-md text-on-surface-variant">Bob Builder</td>
+<td class="px-6 py-4 text-body-md font-body-md text-on-surface-variant">Oct 23, 2024</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-container text-on-secondary-container">
+                                    Delivered
+                                </span>
+</td>
+<td class="px-6 py-4 text-body-md font-body-md text-on-surface">$210.00</td>
+<td class="px-6 py-4 text-right">
+<button class="text-label-md font-label-md text-primary hover:text-on-primary-fixed-variant transition-colors">Update</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</body></html>

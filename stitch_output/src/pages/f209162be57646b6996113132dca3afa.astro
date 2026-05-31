@@ -1,0 +1,315 @@
+---
+---
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Your Shopping Cart - Ayurveda</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="/assets/d9b876024ea07b89d6f4b4c372db4876.css" rel="stylesheet" />
+<!-- Material Symbols -->
+<link href="/assets/a39f5c6fcbb87b419667ec984d2e579a.css" rel="stylesheet" />
+<link href="/assets/a39f5c6fcbb87b419667ec984d2e579a.css" rel="stylesheet" />
+<!-- Tailwind CSS -->
+<script src="/assets/03ba5d9f9e95fc3599acebcbe7e5fb9a.js" is:inline="" />
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#ffb3af",
+                        "inverse-primary": "#a5d0b9",
+                        "on-surface-variant": "#414844",
+                        "on-tertiary-fixed": "#410005",
+                        "tertiary": "#550009",
+                        "on-secondary-container": "#19724f",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#a0f4c8",
+                        "surface-dim": "#d9dadb",
+                        "tertiary-container": "#7e0013",
+                        "on-background": "#191c1d",
+                        "on-primary-container": "#86af99",
+                        "inverse-surface": "#2e3132",
+                        "secondary": "#0e6c4a",
+                        "on-primary-fixed": "#002114",
+                        "surface": "#f8f9fa",
+                        "outline": "#717973",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#002113",
+                        "background": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "surface-bright": "#f8f9fa",
+                        "primary-container": "#1b4332",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#930018",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-tint": "#3f6653",
+                        "surface-container-highest": "#e1e3e4",
+                        "outline-variant": "#c1c8c2",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-container": "#edeeef",
+                        "primary-fixed": "#c1ecd4",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#a0f4c8",
+                        "secondary-fixed-dim": "#85d7ad",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-tertiary-container": "#ff807c",
+                        "surface-variant": "#e1e3e4",
+                        "tertiary-fixed": "#ffdad7",
+                        "primary": "#012d1d",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "surface-container-low": "#f3f4f5",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Noto Serif"],
+                        "label-sm": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "headline-md": ["Noto Serif"],
+                        "headline-lg-mobile": ["Noto Serif"],
+                        "display-lg": ["Noto Serif"],
+                        "body-lg": ["Manrope"],
+                        "label-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-on-surface-variant w-full docked full-width top-0 z-50 border-b border-outline-variant dark:border-on-surface-variant">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20">
+<!-- Brand -->
+<a class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight" href="#">
+                Ayurveda
+            </a>
+<!-- Navigation Links (Desktop) -->
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-label-md font-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="#">Home</a>
+<a class="text-label-md font-label-md text-primary dark:text-inverse-primary font-bold border-b-2 border-primary pb-1" href="#">Products</a>
+<a class="text-label-md font-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="#">Contact us</a>
+<a class="text-label-md font-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="#">About us</a>
+<a class="text-label-md font-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200" href="#">FAQ</a>
+</nav>
+<!-- Trailing Icons -->
+<div class="flex gap-4 items-center text-primary dark:text-inverse-primary">
+<button aria-label="Search" class="hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button aria-label="Profile" class="hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button aria-label="Shopping Bag" class="hover:opacity-80 transition-opacity relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-error text-on-error text-[10px] font-bold">2</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-20">
+<!-- Breadcrumb -->
+<nav class="mb-8 flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary font-bold">Your Shopping Cart</span>
+</nav>
+<!-- Header -->
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg text-primary mb-12">
+            Your Shopping Cart
+        </h1>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-gutter items-start">
+<!-- Cart Items List (Left Column) -->
+<div class="lg:col-span-8 flex flex-col gap-0 border-t border-outline-variant">
+<!-- Table Headers (Hidden on Mobile) -->
+<div class="hidden md:grid grid-cols-12 gap-4 py-4 border-b border-outline-variant text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">
+<div class="col-span-6">Product</div>
+<div class="col-span-2 text-center">Price</div>
+<div class="col-span-2 text-center">Quantity</div>
+<div class="col-span-2 text-right">Total</div>
+</div>
+<!-- Item 1 -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 py-8 border-b border-outline-variant items-center group relative">
+<!-- Mobile Remove Button (Absolute) -->
+<button class="md:hidden absolute top-4 right-0 text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+<!-- Product Image & Info -->
+<div class="col-span-1 md:col-span-6 flex gap-6 items-center">
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-lg bg-surface-container-low overflow-hidden flex-shrink-0 border border-outline-variant/30">
+<img alt="Horse Fire Shilajit Product" class="w-full h-full object-cover mix-blend-multiply" src="/assets/1ccaec8ebfbd8afb5b4d5bb9354d1401.png" />
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-body-lg font-body-lg text-primary font-semibold">Horse Fire Shilajit</h3>
+<p class="text-label-md font-label-md text-on-surface-variant">Pure Himalayan Resin • 20g</p>
+<!-- Mobile Price -->
+<p class="md:hidden text-body-md font-body-md text-primary mt-2">$45.00</p>
+</div>
+</div>
+<!-- Price (Desktop) -->
+<div class="hidden md:block col-span-2 text-center text-body-md font-body-md text-on-surface">
+                        $45.00
+                    </div>
+<!-- Quantity -->
+<div class="col-span-1 md:col-span-2 flex justify-start md:justify-center items-center">
+<div class="flex items-center border border-outline-variant rounded bg-surface-container-lowest">
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">remove</span></button>
+<input aria-label="Quantity" class="w-10 text-center text-body-md font-body-md border-none bg-transparent p-0 focus:ring-0" type="text" value="1" />
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">add</span></button>
+</div>
+</div>
+<!-- Total & Remove (Desktop) -->
+<div class="hidden md:flex col-span-2 justify-end items-center gap-4">
+<span class="text-body-lg font-body-lg text-primary font-semibold">$45.00</span>
+<button aria-label="Remove item" class="text-on-surface-variant hover:text-error transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 py-8 border-b border-outline-variant items-center group relative">
+<!-- Mobile Remove Button -->
+<button class="md:hidden absolute top-4 right-0 text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="col-span-1 md:col-span-6 flex gap-6 items-center">
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-lg bg-surface-container-low overflow-hidden flex-shrink-0 border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="A pristine, minimalist product photography shot of an amber glass dropper bottle containing a botanical serum. The bottle is placed on a smooth, white marble surface against a soft, pale sage-green backdrop. Natural, diffused sunlight casts gentle shadows, highlighting the purity and premium quality of the natural ingredients. The aesthetic is clean, modern apothecary, aligning with a sophisticated light-mode wellness brand identity." src="/assets/a4181293f54844f4827ace6b65ef4113.png" />
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-body-lg font-body-lg text-primary font-semibold">Ashwagandha Extract</h3>
+<p class="text-label-md font-label-md text-on-surface-variant">Stress Relief • 60 Capsules</p>
+<p class="md:hidden text-body-md font-body-md text-primary mt-2">$28.00</p>
+</div>
+</div>
+<div class="hidden md:block col-span-2 text-center text-body-md font-body-md text-on-surface">
+                        $28.00
+                    </div>
+<div class="col-span-1 md:col-span-2 flex justify-start md:justify-center items-center">
+<div class="flex items-center border border-outline-variant rounded bg-surface-container-lowest">
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">remove</span></button>
+<input aria-label="Quantity" class="w-10 text-center text-body-md font-body-md border-none bg-transparent p-0 focus:ring-0" type="text" value="2" />
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">add</span></button>
+</div>
+</div>
+<div class="hidden md:flex col-span-2 justify-end items-center gap-4">
+<span class="text-body-lg font-body-lg text-primary font-semibold">$56.00</span>
+<button aria-label="Remove item" class="text-on-surface-variant hover:text-error transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Action Buttons Row -->
+<div class="flex flex-wrap gap-4 mt-8 pt-4">
+<button class="flex items-center gap-2 px-6 py-3 border border-outline-variant rounded text-primary font-label-md text-label-md uppercase tracking-wider hover:bg-surface-container-low transition-colors duration-300">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+                        Note
+                    </button>
+<button class="flex items-center gap-2 px-6 py-3 border border-outline-variant rounded text-primary font-label-md text-label-md uppercase tracking-wider hover:bg-surface-container-low transition-colors duration-300">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+                        Shipping
+                    </button>
+<button class="flex items-center gap-2 px-6 py-3 border border-outline-variant rounded text-primary font-label-md text-label-md uppercase tracking-wider hover:bg-surface-container-low transition-colors duration-300">
+<span class="material-symbols-outlined text-[18px]">sell</span>
+                        Coupon
+                    </button>
+</div>
+</div>
+<!-- Order Summary (Right Column) -->
+<div class="lg:col-span-4 sticky top-32">
+<div class="bg-surface-container-lowest p-8 border border-outline-variant rounded-xl shadow-[0_10px_20px_rgba(27,67,50,0.03)] flex flex-col gap-6">
+<h2 class="text-headline-md font-headline-md text-primary pb-4 border-b border-outline-variant/50">Order Summary</h2>
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-center text-body-md font-body-md text-on-surface">
+<span>Subtotal</span>
+<span class="font-semibold text-primary">$101.00</span>
+</div>
+<div class="flex justify-between items-center text-body-md font-body-md text-on-surface-variant">
+<span>Estimated Tax</span>
+<span>Calculated at checkout</span>
+</div>
+<div class="flex justify-between items-center text-body-md font-body-md text-on-surface-variant">
+<span>Shipping</span>
+<span>Calculated at checkout</span>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/50 flex justify-between items-end">
+<span class="text-body-lg font-body-lg text-primary font-bold">Total</span>
+<div class="flex flex-col items-end">
+<span class="text-headline-md font-headline-md text-primary font-bold">$101.00</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">USD</span>
+</div>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant text-center my-2">
+                        Taxes and shipping calculated at checkout.
+                    </p>
+<!-- Prominent BUY NOW button using Heritage Red equivalent from theme -->
+<button class="w-full bg-error text-on-error py-4 rounded font-label-md text-label-md uppercase tracking-[0.1em] font-bold shadow-[0_10px_20px_rgba(186,26,26,0.15)] hover:bg-error/90 transition-all duration-300 transform active:scale-[0.98]">
+                        Buy Now
+                    </button>
+<div class="flex items-center justify-center gap-2 text-label-sm font-label-sm text-on-surface-variant mt-2">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span>Secure Checkout</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-highest w-full bottom border-t border-outline-variant mt-16">
+<div class="w-full py-12 px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto text-body-md font-body-md text-on-surface dark:text-on-surface-variant">
+<div class="flex flex-col gap-4 col-span-1">
+<span class="text-headline-md font-headline-md text-primary">Ayurveda</span>
+<p class="text-label-sm font-label-sm mt-2">© 2024 Ayurveda The Ayurveda People. All rights reserved.</p>
+</div>
+<div class="flex flex-col gap-3">
+<a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-colors" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-colors" href="#">Shipping Policy</a>
+<a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-colors" href="#">Refund Policy</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-colors" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+</body></html>

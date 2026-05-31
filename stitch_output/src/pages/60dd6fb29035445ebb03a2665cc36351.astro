@@ -1,0 +1,428 @@
+---
+---
+
+<html lang="en"><head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Admin User Management - Ayurveda</title>
+<!-- Material Symbols -->
+<link href="/assets/a39f5c6fcbb87b419667ec984d2e579a.css" rel="stylesheet" />
+<link href="/assets/a39f5c6fcbb87b419667ec984d2e579a.css" rel="stylesheet" />
+<link href="/assets/0a42d0dd19e8e4450bf396bb68798c01.css" rel="stylesheet" />
+<!-- Tailwind CSS -->
+<script src="/assets/03ba5d9f9e95fc3599acebcbe7e5fb9a.js" is:inline="" />
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#c1c8c2",
+                    "primary": "#012d1d",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#ffb3af",
+                    "on-error-container": "#93000a",
+                    "background": "#f8f9fa",
+                    "surface-container-low": "#f3f4f5",
+                    "tertiary-container": "#7e0013",
+                    "surface-container-high": "#e7e8e9",
+                    "on-surface-variant": "#414844",
+                    "inverse-primary": "#a5d0b9",
+                    "inverse-surface": "#2e3132",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#19724f",
+                    "on-tertiary-fixed": "#410005",
+                    "on-tertiary-container": "#ff807c",
+                    "on-error": "#ffffff",
+                    "outline": "#717973",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "primary-fixed": "#c1ecd4",
+                    "secondary": "#0e6c4a",
+                    "surface-container": "#edeeef",
+                    "surface-tint": "#3f6653",
+                    "on-primary-container": "#86af99",
+                    "tertiary": "#550009",
+                    "on-tertiary-fixed-variant": "#930018",
+                    "on-surface": "#191c1d",
+                    "inverse-on-surface": "#f0f1f2",
+                    "secondary-container": "#a0f4c8",
+                    "surface-dim": "#d9dadb",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#002113",
+                    "secondary-fixed": "#a0f4c8",
+                    "surface-variant": "#e1e3e4",
+                    "surface": "#f8f9fa",
+                    "secondary-fixed-dim": "#85d7ad",
+                    "on-primary-fixed": "#002114",
+                    "tertiary-fixed": "#ffdad7",
+                    "surface-container-highest": "#e1e3e4",
+                    "surface-bright": "#f8f9fa",
+                    "primary-container": "#1b4332",
+                    "error-container": "#ffdad6",
+                    "on-background": "#191c1d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "margin-desktop": "40px",
+                    "container-max": "1280px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Noto Serif"],
+                    "label-md": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "headline-md": ["Noto Serif"],
+                    "headline-lg-mobile": ["Noto Serif"],
+                    "headline-lg": ["Noto Serif"],
+                    "body-lg": ["Manrope"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom scrollbar for table container */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex font-body-md text-body-md overflow-hidden">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full w-64 bg-primary shadow-lg flex flex-col py-base z-40 transition-transform duration-300">
+<!-- Header -->
+<div class="px-6 py-8 mb-4 border-b border-on-primary-fixed-variant">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest overflow-hidden flex-shrink-0 border border-outline-variant">
+<img alt="Admin User Profile" class="w-full h-full object-cover" src="/assets/37cf264fd95f2950fe64f6f197404a0a.png" />
+</div>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-primary">Ayurveda Admin</h2>
+<p class="text-label-sm font-label-sm text-primary-fixed-dim">Management Portal</p>
+</div>
+</div>
+</div>
+<!-- Main Navigation Links -->
+<div class="flex-1 overflow-y-auto scrollbar-hide space-y-2">
+<!-- Dashboard -->
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+<!-- Products -->
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-label-md font-label-md">Products</span>
+</a>
+<!-- Orders -->
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-label-md font-label-md">Orders</span>
+</a>
+<!-- Customers (Active for User Management intent) -->
+<a class="bg-secondary-fixed-dim text-on-secondary-fixed rounded-lg mx-2 flex items-center gap-3 p-3 transition-transform scale-[0.98]" href="#">
+<span class="material-symbols-outlined filled">group</span>
+<span class="text-label-md font-label-md font-bold">Customers</span>
+</a>
+<!-- Analytics -->
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-label-md font-label-md">Analytics</span>
+</a>
+<!-- Settings -->
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-label-md font-label-md">Settings</span>
+</a>
+</div>
+<!-- Footer Links -->
+<div class="mt-auto pt-4 border-t border-on-primary-fixed-variant space-y-2">
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="text-label-md font-label-md">Help Center</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-label-md font-label-md">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-64 flex flex-col h-screen overflow-y-auto bg-surface relative">
+<!-- Top App Bar / Header Area -->
+<header class="w-full px-margin-desktop py-8 flex justify-between items-end border-b border-outline-variant bg-surface-container-lowest sticky top-0 z-30">
+<div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface tracking-tight">User Management</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2 max-w-2xl">Manage administrative access and view registered customer accounts across the platform.</p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-full flex items-center gap-2 font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container hover:shadow-[0px_10px_20px_rgba(27,67,50,0.08)] transition-all duration-300" onclick="document.getElementById('createAdminModal').classList.remove('hidden')">
+<span class="material-symbols-outlined">add</span>
+                Create New Admin
+            </button>
+</header>
+<!-- Content Area -->
+<div class="p-margin-desktop flex-1">
+<!-- Data Table Container -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<!-- Table Controls (Search/Filter) -->
+<div class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-lowest">
+<div class="relative w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface rounded-lg border border-outline-variant text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors placeholder:text-outline" placeholder="Search users by name or email..." type="text" />
+</div>
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<button class="p-2 border border-outline-variant rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-primary-container text-on-primary-container border-b border-outline-variant">
+<th class="py-4 px-6 font-label-md text-label-md uppercase tracking-wider">User Details</th>
+<th class="py-4 px-6 font-label-md text-label-md uppercase tracking-wider">Email Address</th>
+<th class="py-4 px-6 font-label-md text-label-md uppercase tracking-wider">Role</th>
+<th class="py-4 px-6 font-label-md text-label-md uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant bg-surface-container-lowest">
+<!-- Row 1: Admin -->
+<tr class="hover:bg-surface-container-low transition-colors duration-150 group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-dim overflow-hidden flex-shrink-0 border border-outline-variant">
+<img alt="Avatar" class="w-full h-full object-cover" src="/assets/3187217b9c9c592b5b25b2ea451098b7.png" />
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Dr. Anjali Sharma</p>
+<p class="font-label-sm text-label-sm text-outline">Joined Oct 2023</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6 text-body-md font-body-md text-on-surface-variant">
+                                    anjali.sharma@ayurveda.com
+                                </td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-container text-on-secondary-container border border-secondary-fixed">
+                                        Admin
+                                    </span>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-primary hover:bg-primary-fixed rounded-full transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 text-primary hover:bg-error-container hover:text-error rounded-full transition-colors" title="Remove Access">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Customer -->
+<tr class="hover:bg-surface-container-low transition-colors duration-150 group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-dim overflow-hidden flex-shrink-0 border border-outline-variant flex items-center justify-center text-primary font-bold">
+                                            RK
+                                        </div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Rajiv Kapoor</p>
+<p class="font-label-sm text-label-sm text-outline">Joined Jan 2024</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6 text-body-md font-body-md text-on-surface-variant">
+                                    rajiv.kapoor88@gmail.com
+                                </td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-variant text-on-surface-variant border border-outline-variant">
+                                        User
+                                    </span>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-primary hover:bg-primary-fixed rounded-full transition-colors" title="View Profile">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="p-2 text-primary hover:bg-error-container hover:text-error rounded-full transition-colors" title="Delete User">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Customer -->
+<tr class="hover:bg-surface-container-low transition-colors duration-150 group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-dim overflow-hidden flex-shrink-0 border border-outline-variant">
+<img alt="Avatar" class="w-full h-full object-cover" src="/assets/91c39eaed3c4a50e83b399f1feb1a7bb.png" />
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Meera Desai</p>
+<p class="font-label-sm text-label-sm text-outline">Joined Feb 2024</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6 text-body-md font-body-md text-on-surface-variant">
+                                    meera.wellness@outlook.com
+                                </td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-variant text-on-surface-variant border border-outline-variant">
+                                        User
+                                    </span>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-primary hover:bg-primary-fixed rounded-full transition-colors" title="View Profile">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="p-2 text-primary hover:bg-error-container hover:text-error rounded-full transition-colors" title="Delete User">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Admin -->
+<tr class="hover:bg-surface-container-low transition-colors duration-150 group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-dim overflow-hidden flex-shrink-0 border border-outline-variant flex items-center justify-center text-primary font-bold">
+                                            VP
+                                        </div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Vikram Patel</p>
+<p class="font-label-sm text-label-sm text-outline">Joined Aug 2023</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6 text-body-md font-body-md text-on-surface-variant">
+                                    vikram.patel@ayurveda.com
+                                </td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-container text-on-secondary-container border border-secondary-fixed">
+                                        Admin
+                                    </span>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-primary hover:bg-primary-fixed rounded-full transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 text-primary hover:bg-error-container hover:text-error rounded-full transition-colors" title="Remove Access">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex justify-between items-center">
+<p class="text-label-sm font-label-sm text-on-surface-variant">Showing 1 to 4 of 124 users</p>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-outline hover:bg-surface-container-low transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-primary bg-primary text-on-primary font-label-sm text-label-sm">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface hover:bg-surface-container-low transition-colors font-label-sm text-label-sm">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface hover:bg-surface-container-low transition-colors font-label-sm text-label-sm">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Create Admin Modal Overlay (Hidden by default) -->
+<div class="fixed inset-0 bg-on-background/40 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4 transition-opacity" id="createAdminModal">
+<div class="bg-surface-container-lowest w-full max-w-md rounded-xl shadow-[0px_20px_40px_rgba(27,67,50,0.15)] border border-outline-variant overflow-hidden animate-[fadeIn_0.2s_ease-out]">
+<!-- Modal Header -->
+<div class="px-6 py-4 border-b border-outline-variant flex justify-between items-center bg-surface-bright">
+<h3 class="text-headline-md font-headline-md text-on-surface">Create New Admin</h3>
+<button class="text-outline hover:text-on-surface transition-colors p-1 rounded-full hover:bg-surface-container" onclick="document.getElementById('createAdminModal').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Modal Body (Form) -->
+<div class="p-6 space-y-4">
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">Grant administrative privileges to a new team member. They will receive an email invitation to set their password.</p>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1">Full Name</label>
+<input class="w-full px-4 py-2 bg-surface rounded-lg border border-outline-variant text-body-md font-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="e.g. Maya Lin" type="text" />
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1">Work Email</label>
+<input class="w-full px-4 py-2 bg-surface rounded-lg border border-outline-variant text-body-md font-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="maya@ayurveda.com" type="email" />
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1">Role Type</label>
+<select class="w-full px-4 py-2 bg-surface rounded-lg border border-outline-variant text-body-md font-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors appearance-none cursor-pointer">
+<option value="admin">Super Admin (Full Access)</option>
+<option value="manager">Content Manager (Products &amp; Orders only)</option>
+<option value="support">Customer Support (Read-only users)</option>
+</select>
+<!-- Custom select arrow -->
+<div class="pointer-events-none absolute inset-y-0 right-6 flex items-center px-2 text-outline mt-12">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="px-6 py-4 border-t border-outline-variant bg-surface-bright flex justify-end gap-3">
+<button class="px-5 py-2 rounded-full border border-outline-variant text-primary font-label-md text-label-md hover:bg-surface-container transition-colors" onclick="document.getElementById('createAdminModal').classList.add('hidden')">
+                    Cancel
+                </button>
+<button class="px-5 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">
+                    Send Invitation
+                </button>
+</div>
+</div>
+</div>
+<style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</body></html>

@@ -1,0 +1,560 @@
+---
+---
+
+<html lang="en"><head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Ayurveda Admin - User Management</title>
+<script src="/assets/03ba5d9f9e95fc3599acebcbe7e5fb9a.js" is:inline="" />
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="/assets/501fd1ce718d07e6c6ddd4f742852aa1.css" rel="stylesheet" />
+<link href="/assets/a39f5c6fcbb87b419667ec984d2e579a.css" rel="stylesheet" />
+<link href="/assets/a39f5c6fcbb87b419667ec984d2e579a.css" rel="stylesheet" />
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#f3f4f5",
+                      "on-secondary-container": "#19724f",
+                      "on-background": "#191c1d",
+                      "on-secondary-fixed": "#002113",
+                      "on-secondary-fixed-variant": "#005236",
+                      "surface-container": "#edeeef",
+                      "surface-bright": "#f8f9fa",
+                      "primary-fixed-dim": "#a5d0b9",
+                      "tertiary-fixed": "#ffdad7",
+                      "tertiary": "#550009",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#f8f9fa",
+                      "secondary-container": "#a0f4c8",
+                      "surface-variant": "#e1e3e4",
+                      "secondary-fixed-dim": "#85d7ad",
+                      "on-primary-container": "#86af99",
+                      "inverse-primary": "#a5d0b9",
+                      "outline": "#717973",
+                      "tertiary-container": "#7e0013",
+                      "on-tertiary-fixed-variant": "#930018",
+                      "on-primary-fixed-variant": "#274e3d",
+                      "tertiary-fixed-dim": "#ffb3af",
+                      "primary-fixed": "#c1ecd4",
+                      "primary": "#012d1d",
+                      "on-error": "#ffffff",
+                      "outline-variant": "#c1c8c2",
+                      "on-surface": "#191c1d",
+                      "on-primary-fixed": "#002114",
+                      "surface-dim": "#d9dadb",
+                      "surface-container-high": "#e7e8e9",
+                      "on-error-container": "#93000a",
+                      "surface-container-highest": "#e1e3e4",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed": "#410005",
+                      "on-tertiary-container": "#ff807c",
+                      "inverse-surface": "#2e3132",
+                      "inverse-on-surface": "#f0f1f2",
+                      "on-tertiary": "#ffffff",
+                      "background": "#f8f9fa",
+                      "on-secondary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed": "#a0f4c8",
+                      "secondary": "#0e6c4a",
+                      "surface-tint": "#3f6653",
+                      "primary-container": "#1b4332",
+                      "error": "#ba1a1a",
+                      "on-surface-variant": "#414844"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-desktop": "40px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Noto Serif"
+                      ],
+                      "headline-lg-mobile": [
+                              "Noto Serif"
+                      ],
+                      "body-lg": [
+                              "Manrope"
+                      ],
+                      "label-sm": [
+                              "Manrope"
+                      ],
+                      "headline-lg": [
+                              "Noto Serif"
+                      ],
+                      "label-md": [
+                              "Manrope"
+                      ],
+                      "display-lg": [
+                              "Noto Serif"
+                      ],
+                      "body-md": [
+                              "Manrope"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.03em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Custom scrollbar for data tables */
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 6px;
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f8f9fa;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c1c8c2;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #717973;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased flex h-screen overflow-hidden">
+<!-- SideNavBar Component -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container shadow-lg z-50 flex flex-col h-full py-base">
+<!-- Header -->
+<div class="px-6 py-8 flex flex-col items-center border-b border-primary-fixed-dim/20 mb-6">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center mb-4 overflow-hidden">
+<span class="material-symbols-outlined text-primary text-headline-lg font-headline-lg" data-icon="person">person</span>
+</div>
+<h1 class="text-headline-sm font-headline-sm font-bold text-on-primary text-center">Ayurveda Admin</h1>
+<p class="text-label-md font-label-md text-primary-fixed-dim mt-1">Management Portal</p>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 overflow-y-auto custom-scrollbar flex flex-col gap-2">
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-label-md font-label-md">Products</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-label-md font-label-md">Orders</span>
+</a>
+<a class="bg-secondary-fixed-dim text-on-secondary-fixed rounded-lg mx-2 flex items-center gap-3 p-3 scale-98 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="group" data-weight="fill" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="text-label-md font-label-md font-bold">Customers</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="text-label-md font-label-md">Analytics</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-label-md font-label-md">Settings</span>
+</a>
+</nav>
+<!-- Footer Links -->
+<div class="mt-auto border-t border-primary-fixed-dim/20 pt-4 flex flex-col gap-2">
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="text-label-md font-label-md">Help Center</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200 text-error-container" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-label-md font-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-64 overflow-y-auto bg-surface custom-scrollbar">
+<div class="px-margin-desktop py-12 max-w-container-max mx-auto space-y-16">
+<!-- Page Header -->
+<header class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+<div>
+<h2 class="text-display-lg font-display-lg text-on-surface mb-2">User Management</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Oversee customer accounts, manage administrative privileges, and review recent community feedback to ensure a premium apothecary experience.</p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-primary-container transition-colors shadow-sm hover:shadow-[0px_10px_20px_rgba(27,67,50,0.08)]">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+<span class="text-label-md font-label-md uppercase tracking-wider">Invite User</span>
+</button>
+</header>
+<!-- Metrics Overview -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm flex flex-col justify-between h-32 relative overflow-hidden group hover:border-primary-fixed transition-colors">
+<div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-[120px]" data-icon="group">group</span>
+</div>
+<p class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Total Registered</p>
+<p class="text-display-lg font-display-lg text-primary">12,408</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm flex flex-col justify-between h-32 relative overflow-hidden group hover:border-primary-fixed transition-colors">
+<div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-[120px]" data-icon="admin_panel_settings">admin_panel_settings</span>
+</div>
+<p class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Active Admins</p>
+<p class="text-display-lg font-display-lg text-secondary">24</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm flex flex-col justify-between h-32 relative overflow-hidden group hover:border-primary-fixed transition-colors">
+<div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-[120px]" data-icon="star">star</span>
+</div>
+<p class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Avg. Satisfaction</p>
+<div class="flex items-end gap-2">
+<p class="text-display-lg font-display-lg text-primary">4.9</p>
+<p class="text-body-lg font-body-lg text-outline mb-2">/ 5.0</p>
+</div>
+</div>
+</section>
+<!-- User Roster Table -->
+<section class="space-y-6">
+<div class="flex justify-between items-center">
+<h3 class="text-headline-md font-headline-md text-on-surface">System Users</h3>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="bg-surface-container-lowest border border-outline-variant rounded-lg pl-10 pr-4 py-2 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-64 md:w-80 transition-all" placeholder="Search by name or email..." type="text" />
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface border-b border-outline-variant text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">
+<th class="py-4 px-6 font-semibold">User</th>
+<th class="py-4 px-6 font-semibold">Role</th>
+<th class="py-4 px-6 font-semibold">Status</th>
+<th class="py-4 px-6 font-semibold">Joined Date</th>
+<th class="py-4 px-6 font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/50">
+<!-- User Row 1 -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-label-md font-label-md shrink-0">
+                                                EJ
+                                            </div>
+<div>
+<p class="text-body-md font-body-md text-on-surface font-medium">Eleanor Vance</p>
+<p class="text-label-sm font-label-sm text-outline">eleanor.v@example.com</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-high text-on-surface-variant border border-outline-variant">
+                                            Customer
+                                        </span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-secondary" />
+<span class="text-label-md font-label-md text-on-surface">Active</span>
+</div>
+</td>
+<td class="py-4 px-6 text-body-md font-body-md text-on-surface-variant">
+                                        Oct 12, 2023
+                                    </td>
+<td class="py-4 px-6 text-right">
+<button class="text-primary hover:bg-primary-fixed/30 rounded-lg px-4 py-2 text-label-md font-label-md font-bold transition-colors border border-transparent hover:border-primary-fixed">
+                                            Assign Admin
+                                        </button>
+</td>
+</tr>
+<!-- User Row 2 -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-label-md font-label-md shrink-0">
+                                                MR
+                                            </div>
+<div>
+<p class="text-body-md font-body-md text-on-surface font-medium">Marcus Reed</p>
+<p class="text-label-sm font-label-sm text-outline">m.reed@ayurveda.co</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-primary text-on-primary">
+                                            Admin
+                                        </span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-secondary" />
+<span class="text-label-md font-label-md text-on-surface">Active</span>
+</div>
+</td>
+<td class="py-4 px-6 text-body-md font-body-md text-on-surface-variant">
+                                        Jan 04, 2022
+                                    </td>
+<td class="py-4 px-6 text-right">
+<button class="text-tertiary hover:bg-tertiary-fixed/50 rounded-lg px-4 py-2 text-label-md font-label-md font-bold transition-colors">
+                                            Revoke Admin
+                                        </button>
+</td>
+</tr>
+<!-- User Row 3 -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-on-surface-variant font-bold text-label-md font-label-md shrink-0">
+                                                SL
+                                            </div>
+<div>
+<p class="text-body-md font-body-md text-on-surface font-medium">Sophia Lin</p>
+<p class="text-label-sm font-label-sm text-outline">sophia.wellness@mail.com</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-high text-on-surface-variant border border-outline-variant">
+                                            Customer
+                                        </span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-outline-variant" />
+<span class="text-label-md font-label-md text-outline">Inactive</span>
+</div>
+</td>
+<td class="py-4 px-6 text-body-md font-body-md text-on-surface-variant">
+                                        Feb 28, 2024
+                                    </td>
+<td class="py-4 px-6 text-right">
+<button class="text-primary hover:bg-primary-fixed/30 rounded-lg px-4 py-2 text-label-md font-label-md font-bold transition-colors border border-transparent hover:border-primary-fixed">
+                                            Assign Admin
+                                        </button>
+</td>
+</tr>
+<!-- User Row 4 -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-label-md font-label-md shrink-0">
+                                                DJ
+                                            </div>
+<div>
+<p class="text-body-md font-body-md text-on-surface font-medium">David Jenkins</p>
+<p class="text-label-sm font-label-sm text-outline">d.jenkins99@example.com</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-high text-on-surface-variant border border-outline-variant">
+                                            Customer
+                                        </span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-secondary" />
+<span class="text-label-md font-label-md text-on-surface">Active</span>
+</div>
+</td>
+<td class="py-4 px-6 text-body-md font-body-md text-on-surface-variant">
+                                        Mar 15, 2024
+                                    </td>
+<td class="py-4 px-6 text-right">
+<button class="text-primary hover:bg-primary-fixed/30 rounded-lg px-4 py-2 text-label-md font-label-md font-bold transition-colors border border-transparent hover:border-primary-fixed">
+                                            Assign Admin
+                                        </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="bg-surface px-6 py-4 border-t border-outline-variant flex items-center justify-between">
+<p class="text-label-sm font-label-sm text-on-surface-variant">Showing 1 to 4 of 12,408 users</p>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center text-outline hover:bg-surface-container-high transition-colors" disabled="">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary text-on-primary flex items-center justify-center text-label-md font-label-md font-bold">1</button>
+<button class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors text-label-md font-label-md">2</button>
+<button class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors text-label-md font-label-md">3</button>
+<span class="text-outline mx-1">...</span>
+<button class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- User Feedback Section (Bento Grid Style) -->
+<section class="space-y-6 pt-8 border-t border-outline-variant/30">
+<div class="flex justify-between items-end">
+<div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-1">Customer Feedback</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Recent product reviews and platform ratings.</p>
+</div>
+<button class="text-primary text-label-md font-label-md font-bold hover:underline flex items-center gap-1">
+                        View All Feedback <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Feedback Card 1 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm hover:shadow-[0px_10px_20px_rgba(27,67,50,0.04)] transition-all flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed-dim flex items-center justify-center text-primary text-label-sm font-label-sm">
+                                    TH
+                                </div>
+<div>
+<p class="text-label-md font-label-md text-on-surface">Thomas H.</p>
+<p class="text-label-sm font-label-sm text-outline font-normal">Verified Buyer</p>
+</div>
+</div>
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<h4 class="text-body-lg font-body-lg font-semibold text-on-surface mb-2">Ashwagandha Extract</h4>
+<p class="text-body-md font-body-md text-on-surface-variant italic mb-4 flex-1">"The purity of this extract is noticeable compared to other brands I've tried. The packaging feels premium and the effects have been great for my sleep routine."</p>
+<p class="text-label-sm font-label-sm text-outline mt-auto">2 days ago</p>
+</article>
+<!-- Feedback Card 2 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm hover:shadow-[0px_10px_20px_rgba(27,67,50,0.04)] transition-all flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-on-surface-variant text-label-sm font-label-sm">
+                                    AK
+                                </div>
+<div>
+<p class="text-label-md font-label-md text-on-surface">Amira K.</p>
+<p class="text-label-sm font-label-sm text-outline font-normal">Registered User</p>
+</div>
+</div>
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px] text-outline-variant" data-icon="star">star</span>
+</div>
+</div>
+<h4 class="text-body-lg font-body-lg font-semibold text-on-surface mb-2">Platform Experience</h4>
+<p class="text-body-md font-body-md text-on-surface-variant italic mb-4 flex-1">"The website is beautifully designed and very calming to browse. I had a slight issue finding the exact dosage instructions for the teas, but customer service was incredibly helpful."</p>
+<p class="text-label-sm font-label-sm text-outline mt-auto">1 week ago</p>
+</article>
+<!-- Feedback Card 3 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm hover:shadow-[0px_10px_20px_rgba(27,67,50,0.04)] transition-all flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-secondary text-label-sm font-label-sm">
+                                    LJ
+                                </div>
+<div>
+<p class="text-label-md font-label-md text-on-surface">Liam J.</p>
+<p class="text-label-sm font-label-sm text-outline font-normal">Verified Buyer</p>
+</div>
+</div>
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<h4 class="text-body-lg font-body-lg font-semibold text-on-surface mb-2">Turmeric Vitality Blend</h4>
+<p class="text-body-md font-body-md text-on-surface-variant italic mb-4 flex-1">"Absolutely essential part of my morning routine now. The quality of the herbs is evident immediately upon opening the jar. Highly recommend to anyone seeking natural inflammation support."</p>
+<p class="text-label-sm font-label-sm text-outline mt-auto">2 weeks ago</p>
+</article>
+</div>
+</section>
+</div>
+</main>
+</body></html>

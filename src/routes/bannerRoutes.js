@@ -1,14 +1,17 @@
 const express = require("express");
-const router = express.Router();
-
-const { getActiveBanner, updateBanner } = require("../controllers/bannerController");
+const { getActiveBanners, getAllBanners, createBanner, updateBanner, deleteBanner } = require("../controllers/bannerController");
 const { protect } = require("../middleware/authMiddleware");
 const { isAdmin } = require("../middleware/isAdmin.middleware");
 
-// Public: Frontend calls this to display the banner
-router.get("/", getActiveBanner);
+const router = express.Router();
 
-// Admin: Update banner settings
-router.put("/", protect, isAdmin, updateBanner);
+// Public route: Get active banners for the frontend
+router.get("/", getActiveBanners);
+
+// Admin routes
+router.get("/all", protect, isAdmin, getAllBanners);
+router.post("/", protect, isAdmin, createBanner);
+router.put("/:id", protect, isAdmin, updateBanner);
+router.delete("/:id", protect, isAdmin, deleteBanner);
 
 module.exports = router;

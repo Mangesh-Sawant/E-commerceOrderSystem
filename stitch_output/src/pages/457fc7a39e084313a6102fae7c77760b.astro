@@ -1,0 +1,382 @@
+---
+---
+
+<html lang="en"><head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>All Orders - Ayurveda Admin</title>
+<script src="/assets/03ba5d9f9e95fc3599acebcbe7e5fb9a.js" is:inline="" />
+<link href="/assets/a39f5c6fcbb87b419667ec984d2e579a.css" rel="stylesheet" />
+<link href="/assets/501fd1ce718d07e6c6ddd4f742852aa1.css" rel="stylesheet" />
+<link href="/assets/a39f5c6fcbb87b419667ec984d2e579a.css" rel="stylesheet" />
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f3f4f5",
+                        "on-secondary-container": "#19724f",
+                        "on-background": "#191c1d",
+                        "on-secondary-fixed": "#002113",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-container": "#edeeef",
+                        "surface-bright": "#f8f9fa",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "tertiary-fixed": "#ffdad7",
+                        "tertiary": "#550009",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "secondary-container": "#a0f4c8",
+                        "surface-variant": "#e1e3e4",
+                        "secondary-fixed-dim": "#85d7ad",
+                        "on-primary-container": "#86af99",
+                        "inverse-primary": "#a5d0b9",
+                        "outline": "#717973",
+                        "tertiary-container": "#7e0013",
+                        "on-tertiary-fixed-variant": "#930018",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "tertiary-fixed-dim": "#ffb3af",
+                        "primary-fixed": "#c1ecd4",
+                        "primary": "#012d1d",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c1c8c2",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed": "#002114",
+                        "surface-dim": "#d9dadb",
+                        "surface-container-high": "#e7e8e9",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e1e3e4",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#410005",
+                        "on-tertiary-container": "#ff807c",
+                        "inverse-surface": "#2e3132",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f8f9fa",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#a0f4c8",
+                        "secondary": "#0e6c4a",
+                        "surface-tint": "#3f6653",
+                        "primary-container": "#1b4332",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#414844"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Noto Serif", "serif"],
+                        "headline-lg-mobile": ["Noto Serif", "serif"],
+                        "body-lg": ["Manrope", "sans-serif"],
+                        "label-sm": ["Manrope", "sans-serif"],
+                        "headline-lg": ["Noto Serif", "serif"],
+                        "label-md": ["Manrope", "sans-serif"],
+                        "display-lg": ["Noto Serif", "serif"],
+                        "body-md": ["Manrope", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for data table */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.surface-container-low'); 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.outline-variant'); 
+            border-radius: theme('borderRadius.full');
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline'); 
+        }
+    </style>
+</head>
+<body class="bg-surface-container-low text-on-surface antialiased flex h-screen overflow-hidden">
+<!-- SideNavBar (Shared Component) -->
+<nav class="fixed left-0 top-0 h-full w-64 bg-primary shadow-lg flex flex-col py-base z-20">
+<!-- Header / Brand -->
+<div class="px-6 py-8 mb-4 border-b border-on-primary-fixed-variant">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<h2 class="text-headline-md font-headline-md font-bold text-on-primary">Ayurveda Admin</h2>
+<p class="text-label-sm font-label-sm text-primary-fixed-dim">Management Portal</p>
+</div>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 space-y-1 px-2 overflow-y-auto">
+<!-- Dashboard (Inactive) -->
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+<!-- Products (Inactive) -->
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-label-md font-label-md">Products</span>
+</a>
+<!-- Orders (Active) -->
+<a class="bg-secondary-fixed-dim text-on-secondary-fixed rounded-lg mx-2 flex items-center gap-3 p-3 scale-98 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span class="text-label-md font-label-md font-bold">Orders</span>
+</a>
+<!-- Customers (Inactive) -->
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-label-md font-label-md">Customers</span>
+</a>
+<!-- Analytics (Inactive) -->
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-label-md font-label-md">Analytics</span>
+</a>
+<!-- Settings (Inactive) -->
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-label-md font-label-md">Settings</span>
+</a>
+</div>
+<!-- Footer Links -->
+<div class="mt-auto px-2 pt-4 border-t border-on-primary-fixed-variant">
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="text-label-md font-label-md">Help Center</span>
+</a>
+<a class="text-primary-fixed-dim hover:bg-on-primary-fixed-variant rounded-lg mx-2 flex items-center gap-3 p-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-label-md font-label-md">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 h-full overflow-y-auto bg-surface-container-low p-margin-desktop">
+<div class="max-w-container-max mx-auto">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div>
+<h1 class="text-display-lg font-display-lg text-primary">All Orders</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Manage, track, and process customer orders.</p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-3">
+<button class="px-6 py-3 bg-surface-container-lowest border border-outline-variant text-secondary font-label-md text-label-md uppercase tracking-wider rounded-DEFAULT hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">download</span> Export CSV
+                    </button>
+<button class="px-6 py-3 bg-primary-container text-on-primary font-label-md text-label-md uppercase tracking-wider rounded-DEFAULT shadow-[0px_10px_20px_rgba(27,67,50,0.08)] hover:bg-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span> Create Order
+                    </button>
+</div>
+</div>
+<!-- Filters Bar -->
+<div class="bg-surface-container-lowest p-4 rounded-t-xl border border-outline-variant border-b-0 flex flex-col lg:flex-row gap-4 items-center justify-between">
+<!-- Search -->
+<div class="relative w-full lg:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface border border-outline-variant rounded-DEFAULT focus:border-primary focus:ring-1 focus:ring-primary outline-none text-body-md font-body-md text-on-surface transition-all" placeholder="Search by Order ID, Customer, or Email..." type="text" />
+</div>
+<!-- Filter Controls -->
+<div class="flex items-center gap-3 w-full lg:w-auto overflow-x-auto pb-2 lg:pb-0">
+<div class="relative min-w-[160px]">
+<select class="w-full appearance-none pl-4 pr-10 py-2 bg-surface border border-outline-variant rounded-DEFAULT text-body-md font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none cursor-pointer">
+<option value="">Status: All</option>
+<option value="processing">Processing</option>
+<option value="shipped">Shipped</option>
+<option value="delivered">Delivered</option>
+<option value="cancelled">Cancelled</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
+</div>
+<div class="relative min-w-[160px]">
+<select class="w-full appearance-none pl-4 pr-10 py-2 bg-surface border border-outline-variant rounded-DEFAULT text-body-md font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none cursor-pointer">
+<option value="">Date: Last 30 Days</option>
+<option value="7days">Last 7 Days</option>
+<option value="this_month">This Month</option>
+<option value="custom">Custom Range</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
+</div>
+<button class="p-2 text-outline hover:text-primary transition-colors flex-shrink-0" title="Clear Filters">
+<span class="material-symbols-outlined">filter_alt_off</span>
+</button>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="bg-surface-container-lowest rounded-b-xl border border-outline-variant shadow-[0px_10px_20px_rgba(27,67,50,0.04)] overflow-x-auto">
+<table class="w-full text-left border-collapse whitespace-nowrap min-w-[900px]">
+<!-- Forest Green Headers per guidance -->
+<thead class="bg-primary-container text-on-primary">
+<tr>
+<th class="py-4 px-6 font-label-md text-label-md uppercase tracking-wider w-12 text-center">
+<input class="rounded-DEFAULT border-outline bg-transparent text-primary focus:ring-primary" type="checkbox" />
+</th>
+<th class="py-4 px-6 font-label-md text-label-md uppercase tracking-wider cursor-pointer hover:text-primary-fixed-dim transition-colors">
+<div class="flex items-center gap-1">Order ID <span class="material-symbols-outlined text-[16px]">arrow_downward</span></div>
+</th>
+<th class="py-4 px-6 font-label-md text-label-md uppercase tracking-wider">Date</th>
+<th class="py-4 px-6 font-label-md text-label-md uppercase tracking-wider">Customer</th>
+<th class="py-4 px-6 font-label-md text-label-md uppercase tracking-wider text-right">Amount</th>
+<th class="py-4 px-6 font-label-md text-label-md uppercase tracking-wider">Status</th>
+<th class="py-4 px-6 font-label-md text-label-md uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="text-body-md font-body-md text-on-surface divide-y divide-surface-variant">
+<!-- Row 1: Processing -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="py-4 px-6 text-center">
+<input class="rounded-DEFAULT border-outline-variant text-primary focus:ring-primary" type="checkbox" />
+</td>
+<td class="py-4 px-6 font-label-md text-primary">#ORD-9821</td>
+<td class="py-4 px-6 text-on-surface-variant">Oct 24, 2023 <span class="text-label-sm block text-outline">09:41 AM</span></td>
+<td class="py-4 px-6">
+<div class="font-label-md">Eleanor Vance</div>
+<div class="text-label-sm text-outline">eleanor.v@example.com</div>
+</td>
+<td class="py-4 px-6 text-right font-label-md">$145.00</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary" /> Processing
+                                </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-secondary hover:text-primary font-label-md transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">View Details</button>
+</td>
+</tr>
+<!-- Row 2: Shipped -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="py-4 px-6 text-center">
+<input class="rounded-DEFAULT border-outline-variant text-primary focus:ring-primary" type="checkbox" />
+</td>
+<td class="py-4 px-6 font-label-md text-primary">#ORD-9820</td>
+<td class="py-4 px-6 text-on-surface-variant">Oct 23, 2023 <span class="text-label-sm block text-outline">14:22 PM</span></td>
+<td class="py-4 px-6">
+<div class="font-label-md">Marcus Thorne</div>
+<div class="text-label-sm text-outline">m.thorne@example.com</div>
+</td>
+<td class="py-4 px-6 text-right font-label-md">$89.50</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary" /> Shipped
+                                </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-secondary hover:text-primary font-label-md transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">View Details</button>
+</td>
+</tr>
+<!-- Row 3: Delivered -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="py-4 px-6 text-center">
+<input class="rounded-DEFAULT border-outline-variant text-primary focus:ring-primary" type="checkbox" />
+</td>
+<td class="py-4 px-6 font-label-md text-primary">#ORD-9819</td>
+<td class="py-4 px-6 text-on-surface-variant">Oct 22, 2023 <span class="text-label-sm block text-outline">11:05 AM</span></td>
+<td class="py-4 px-6">
+<div class="font-label-md">Sarah Jenkins</div>
+<div class="text-label-sm text-outline">s.jenkins99@example.com</div>
+</td>
+<td class="py-4 px-6 text-right font-label-md">$210.00</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary" /> Delivered
+                                </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-secondary hover:text-primary font-label-md transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">View Details</button>
+</td>
+</tr>
+<!-- Row 4: Delivered -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="py-4 px-6 text-center">
+<input class="rounded-DEFAULT border-outline-variant text-primary focus:ring-primary" type="checkbox" />
+</td>
+<td class="py-4 px-6 font-label-md text-primary">#ORD-9818</td>
+<td class="py-4 px-6 text-on-surface-variant">Oct 21, 2023 <span class="text-label-sm block text-outline">16:45 PM</span></td>
+<td class="py-4 px-6">
+<div class="font-label-md">David Cho</div>
+<div class="text-label-sm text-outline">david.cho@example.com</div>
+</td>
+<td class="py-4 px-6 text-right font-label-md">$45.00</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary" /> Delivered
+                                </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-secondary hover:text-primary font-label-md transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">View Details</button>
+</td>
+</tr>
+<!-- Row 5: Processing -->
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="py-4 px-6 text-center">
+<input class="rounded-DEFAULT border-outline-variant text-primary focus:ring-primary" type="checkbox" />
+</td>
+<td class="py-4 px-6 font-label-md text-primary">#ORD-9817</td>
+<td class="py-4 px-6 text-on-surface-variant">Oct 21, 2023 <span class="text-label-sm block text-outline">08:12 AM</span></td>
+<td class="py-4 px-6">
+<div class="font-label-md">Amelia Pond</div>
+<div class="text-label-sm text-outline">a.pond@example.com</div>
+</td>
+<td class="py-4 px-6 text-right font-label-md">$125.75</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary" /> Processing
+                                </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-secondary hover:text-primary font-label-md transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">View Details</button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination Footer -->
+<div class="px-6 py-4 border-t border-surface-variant flex items-center justify-between bg-surface-container-lowest">
+<span class="text-body-md font-body-md text-on-surface-variant">Showing 1 to 5 of 124 orders</span>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-DEFAULT border border-outline-variant text-outline hover:text-primary hover:border-primary transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="px-4 py-2 rounded-DEFAULT bg-primary-fixed text-on-primary-fixed font-label-md">1</button>
+<button class="px-4 py-2 rounded-DEFAULT text-on-surface hover:bg-surface-variant font-label-md transition-colors">2</button>
+<button class="px-4 py-2 rounded-DEFAULT text-on-surface hover:bg-surface-variant font-label-md transition-colors">3</button>
+<span class="px-2 text-outline">...</span>
+<button class="p-2 rounded-DEFAULT border border-outline-variant text-outline hover:text-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
